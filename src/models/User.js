@@ -13,6 +13,10 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
+    money: {
+      type: Number,
+      default: 0
+    }
   },
   { timestamps: true }
 );

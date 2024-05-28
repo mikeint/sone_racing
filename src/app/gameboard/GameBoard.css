@@ -1,0 +1,175 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+.dice-wrapper {
+    position: relative;
+    display: block;
+    width: 130px;
+    height: 135px;
+    overflow: hidden;
+    user-select: none;
+    background: white;
+    border-right: 1px solid #eaeaea;
+    border-radius: 20px;
+    margin-right: 1px;
+} 
+
+.dice-container {
+  display: block;
+  position: relative;
+  width: 82px;
+  height: 82px;
+  border-radius: 10px;
+  background-color: rgb(102, 212, 102);
+  overflow: hidden;
+  z-index: 0; 
+  animation-direction: forwards;
+  animation-iteration-count: 5;
+  /* animation-play-state: paused; 
+  animation-name: spin; */
+  animation: spin 0.1s infinite paused;
+  box-shadow: 0 0 10px -2px grey;
+}
+.dice { 
+	font-size: 55px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+  border: 1px solid #daaeae
+}
+
+@keyframes spin {
+  0% {
+    position: absolute;
+    transform: rotate(0deg);
+    margin: 25px 0 0 22px;
+  }
+  10% {
+    position: absolute;
+    transform: rotate(36deg);
+    margin: 40px 0 0 22px;
+  }
+  20% {
+    position: absolute;
+    transform: rotate(72deg);
+    margin: 30px 0 0 22px;
+  }
+  30% {
+    position: absolute;
+    transform: rotate(108deg);
+    margin: 20px 0 0 22px;
+  }
+  40% {
+    position: absolute;
+    transform: rotate(144deg);
+    margin: 30px 0 0 22px;
+  }
+  50% {
+    position: absolute;
+    transform: rotate(180deg);
+    margin: 40px 0 0 22px;
+  }
+  60% {
+    position: fixed;
+    transform: rotate(216deg);
+    margin: 30px 0 0 22px;
+  }
+  70% {
+    position: absolute;
+    transform: rotate(252deg);
+    margin: 20px 0 0 22px;
+  }
+  80% {
+    position: absolute;
+    transform: rotate(288deg);
+    margin: 30px 0 0 22px;
+  }
+  90% {
+    position: absolute;
+    transform: rotate(334deg);
+    margin: 40px 0 0 22px;
+  }
+  100% {
+    position: absolute;
+    transform: rotate(359deg);
+    margin: 30px 0 0 22px;
+  }
+}
+
+
+
+
+/* MOBILE DICE */
+@media only screen and (max-width: 1280px) {
+  .dice-container {
+    width: 42px;
+    height: 42px;
+  }
+  .dice-wrapper {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+  }
+  .dice { 
+    font-size: 28px;
+  }
+
+  @keyframes spin {
+    0% {
+      position: absolute;
+      transform: rotate(0deg);
+      margin: 10px 0 0 13px;
+    }
+    10% {
+      position: absolute;
+      transform: rotate(36deg);
+      margin: 25px 0 0 13px;
+    }
+    20% {
+      position: absolute;
+      transform: rotate(72deg);
+      margin: 15px 0 0 13px;
+    }
+    30% {
+      position: absolute;
+      transform: rotate(108deg);
+      margin: 5px 0 0 13px;
+    }
+    40% {
+      position: absolute;
+      transform: rotate(144deg);
+      margin: 15px 0 0 13px;
+    }
+    50% {
+      position: absolute;
+      transform: rotate(180deg);
+      margin: 25px 0 0 13px;
+    }
+    60% {
+      position: fixed;
+      transform: rotate(216deg);
+      margin: 15px 0 0 13px;
+    }
+    70% {
+      position: absolute;
+      transform: rotate(252deg);
+      margin: 5px 0 0 13px;
+    }
+    80% {
+      position: absolute;
+      transform: rotate(288deg);
+      margin: 15px 0 0 13px;
+    }
+    90% {
+      position: absolute;
+      transform: rotate(334deg);
+      margin: 30px 0 0 13px;
+    }
+    100% {
+      position: absolute;
+      transform: rotate(359deg);
+      margin: 20px 0 0 13px;
+    }
+  }
+}

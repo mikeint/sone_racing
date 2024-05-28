@@ -1,0 +1,300 @@
+.editBoardTopNav {
+    height: 100px;
+    overflow: hidden;
+}
+
+/* LAYOUT */
+.editBoardContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: calc(50vh - 100px) !important
+}
+.item {
+    display: flex;
+    font-size: 24px;
+    flex: 1 0 33.33%;
+}
+.item1 { 
+    flex-basis: 50%;
+    width: 40%;
+}
+.item2 { 
+    flex-basis: 50%;
+    width: 40%;
+}
+.item3 {
+    flex-basis: 100%;
+    width: 30%;
+}
+.item4 {
+    flex-basis: 30%;
+    width: 30%;
+}
+.item5 {
+    flex-basis: 70%;
+    width: 30%;
+}
+/* end LAYOUT */
+
+
+/* inner item DESIGNs */
+.editboard-tier {
+    display: flex;
+    width: 100px;
+    height: 100%;
+}
+
+
+/* inner item DESIGNs */
+
+/* CAR */
+.editboard-tier {
+    display: flex;
+    height: 100%;
+    padding: 5px;
+    color: #fff;
+    justify-content: center;
+    flex-direction: column;
+    width: 50px;
+}
+.editboard-fullCarContainer {
+    display: flex;
+    width: 100%;
+}
+.editboard-nameContainer {
+    display: flex;
+    flex-direction: row;
+    max-height: 80px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.editboard-carContainer {
+    display: flex;
+    flex-direction: column;
+}
+.editboard-logo {
+    width: 50px;
+    margin-left: 10px;
+}
+.editboard-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.editboard-car {
+    margin-left: 10px;
+    margin-top: 10px;
+    max-width: 300px;
+}
+.editboard-name {
+    font-size: 20px;
+}
+.editboard-year {
+    font-size: 14px;
+}
+/* end CAR  */
+
+/* PARTS */
+.editboard-diceChooserContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.editboard-dc1 {background: url('/images/parts/engine.png');}
+.editboard-dc2 {background: url('/images/parts/transmission.png');}
+.editboard-dc3 {background: url('/images/parts/wheels.png');}
+.editboard-dc4 {background: url('/images/parts/turbo.png');}
+.editboard-dc5 {background: url('/images/parts/frame.png');}
+.editboard-dc6 {background: url('/images/parts/intake.png');}
+.editboard-dicechoose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.33%;
+    border: 1px solid #000;
+    font-size: 24px;
+    background-color: #fff;
+    cursor: pointer; 
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* end PARTS */
+
+/* DICE */
+.editboard-diceContainer {
+    display: flex;
+    height: calc(50vh - 60px);
+    width: 100%;
+    overflow: scroll;
+    flex-direction: column; 
+}
+.editboard-diceRow {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.editboard-dice {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 10px; 
+    border: 2px solid #000;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.editboard-dice.active {
+    box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.5)
+}
+.editboard-diceNotOwned {
+    width: 80px;
+    height: 80px; 
+    background-color: #575757;
+    border-radius: 10px;
+    margin: 10px; 
+    border: 2px solid #000;
+    opacity: 0.4;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.editboard-diceFaceValue {
+    font-size: 14px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-top: 22px;
+    color: #000;
+}
+/* end DICE */
+ 
+/* STATS */
+.editboard-barGraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.editboard-bar {
+    position: relative;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 5px; 
+    transform: scaleX(-1); /* Flips the bar horizontally */
+}
+
+.editboard-barLabel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    transform: scaleX(-1); /* Flips the text back to normal */
+    color: #fff;
+    padding: 5px;
+    white-space: nowrap;
+}
+/* end STATS */
+
+/* ATTR */
+.editboard-diceAttrContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+.editboard-diceAttr {
+    width: 100%;
+    height: 33.333333%;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+.editboard-diceAttr.selected {
+    background-color: #00ff8880;
+}
+.editboard-diceAttrNotOwned {
+    height: 33.333333%;
+    background-color: #727272;
+    color: #fff; 
+}
+.editboard-diceAttrName {
+    font-size: 12px;
+    font-weight: bold;
+}
+.editboard-diceAttrCost {
+    font-size: 10px;
+}
+/* end ATTR */
+
+
+
+@media (max-width: 1280px) {
+    .editBoardTopNav {
+        height: 50px !important;
+        overflow: hidden;
+    } 
+    .editBoardContainer {
+        height: calc(100vh - 50px) !important;
+    }
+    .editboard-diceContainer {
+        height: calc(100vh - 50px) !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .editBoardContainer {
+        flex-direction: row;
+        height: calc(100vh - 50px) !important
+    }
+    .item1 {
+        flex-basis: 100%;
+        order: 1;
+        height: 25%;
+    }
+    .item3 { 
+        flex-basis: 100%;
+        order: 2;
+        height: 25%;
+    }
+    .item4,
+    .item5 {
+        flex-basis: 50%;
+        order: 3;
+        height: 25%;
+    }
+    .item2 {
+        flex-basis: 100%;
+        order: 4;
+        height: 25%;
+    }
+    .editboard-diceContainer {
+        display: flex;
+        height: unset !important;
+        width: 100%;
+        overflow: scroll;
+        flex-direction: row; 
+    }
+    .editboard-diceRow {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    } 
+}

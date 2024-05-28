@@ -1,9 +1,9 @@
-import UserCar from "@/models/UserCar";
+import User from "@/models/User";
 import connect from "@/utils/db";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-export const GET = async (request: any) => {
+export const GET = async () => {
 	await connect();
 
 	try {
@@ -15,23 +15,20 @@ export const GET = async (request: any) => {
 
 		const userEmail = session?.user?.email;
 
-		// Fetch all cars for the logged-in user by email
-		const userCars = await UserCar.find({ userEmail: userEmail }, 'car');
+		const user = await User.findOne({ email: userEmail }, 'email username money');
 
-		if (!userCars || userCars.length === 0) {
-			return new NextResponse("No cars found", { status: 404 });
+		if (!user) {
+			return new NextResponse("No user found", { status: 404 });
 		}
 
-		// return just contents of the cars, not entire car object
-		const carObjects = userCars.map(doc => doc.car);
-
-		return new NextResponse(JSON.stringify(carObjects), {
+		return new NextResponse(JSON.stringify({ email: user.email, money: user.money }), {
 			status: 200,
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
 	} catch (error) {
+		console.error(error);
 		return new NextResponse("Internal Server Error", { status: 500 });
 	}
 };

@@ -4,8 +4,12 @@ const singleDiceAttributeSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   name: { type: String, required: true },
   cost: { type: Number, required: true },
-  speed: { type: Number, required: true },
-  wheelspin: { type: Number, required: true }
+  horsepower: { type: Number, required: true },
+  weight: { type: Number, required: true },
+  shiftspeed: { type: Number, required: true },
+  wheelspin: { type: Number, required: true },
+  owned: { type: Boolean, required: true },
+  selected: { type: Boolean, required: true }
 });
 
 const diceAttrSchema = new mongoose.Schema({
@@ -13,6 +17,8 @@ const diceAttrSchema = new mongoose.Schema({
   name: { type: String, required: true },
   image: { type: String, default: '' },
   rollRate: { type: Number, required: true },
+  owned: { type: Boolean, required: true },
+  cost: { type: Number, required: true }, 
   diceAttributes: [singleDiceAttributeSchema]
 });
 
@@ -27,13 +33,20 @@ const UserCarSchema = new mongoose.Schema({
     value: { type: Number },
     gears: { type: Number },
     image: { type: String },
+    baseStats: {
+      horsepower: { type: Number, required: true },
+      weight: { type: Number, required: true },
+      shiftspeed: { type: Number, required: true }, 
+      wheelspin: { type: Number, required: true }
+    },
     parts: {
       engine: [diceAttrSchema],
       turbo: [diceAttrSchema],
       intake: [diceAttrSchema],
-      nitrous: [diceAttrSchema],
       body: [diceAttrSchema],
       tires: [diceAttrSchema],
+      transmission: [diceAttrSchema],
+      nitrous: [diceAttrSchema],
     },
   }
 });

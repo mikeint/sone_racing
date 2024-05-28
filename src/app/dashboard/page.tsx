@@ -10,6 +10,7 @@ const Dashboard = async () => {
     if (!session) {
         redirect("/login");
     }
+	
     return (
         <>
             <Navbar />

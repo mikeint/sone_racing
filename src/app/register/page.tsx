@@ -9,8 +9,6 @@ const Register = () => {
 	const router = useRouter();
 	const { data: session, status: sessionStatus } = useSession();
 
-	//console.log(session, sessionStatus)
-
 	useEffect(() => {
 		if (sessionStatus === "authenticated") {
 			router.replace("/dashboard");
