@@ -78,17 +78,18 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
     };
 
     const handleDiceFaceClick = (id: number, owned: boolean, cost: number) => {
+        
+        setSelectedDiceFace(id-1);
         if (!owned) {
-
             //SWAL: check first with user, then call function
             const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                confirmButton: "btn btn-success",
+                    customClass: {
+                    confirmButton: "btn btn-success",
                 },
-                buttonsStyling: false
+                    buttonsStyling: false
                 });
                 swalWithBootstrapButtons.fire({
-                    title: "Buy this dice?",
+                    title: "Buy this dice face?",
                     text: "$"+cost,
                     confirmButtonText: "BUY",
                     reverseButtons: true
@@ -96,13 +97,11 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                     if (result.isConfirmed) {
                         // POST TO BUY DICE FACE
                         checkMoneyAndBuyDiceFace();
-                        setSelectedDiceFace(id-1);
                     } else {
                         setSelectedDiceFace(0);
                     }
                 });
         }
-
 		const checkMoneyAndBuyDiceFace = async () => {
 			try {
 				const response = await fetch('/api/buyDiceFace', {
@@ -128,17 +127,85 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 				console.error("Error buying car:", error);
 			}
 		}
- 
-
-
-        setSelectedDiceFace(id-1);
     };
 
-    const selectDiceAttr = (id: number, owned: boolean ) => {
+    const selectDiceAttr = (id: number, owned: boolean, cost: number) => {
+
         if (!owned) {
-            console.log("post request to buy diceATTR " + id)
+            //SWAL: check first with user, then call function
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                confirmButton: "btn btn-success",
+                },
+                buttonsStyling: false
+                });
+                swalWithBootstrapButtons.fire({
+                    title: "Buy this attribute?",
+                    text: "$"+cost,
+                    confirmButtonText: "BUY",
+                    reverseButtons: true
+                }).then((result: any) => {
+                    if (result.isConfirmed) {
+                        // POST TO BUY DICE FACE Attribute
+                        checkMoneyAndBuyDiceAttribute();
+                    }
+            });
+
+            const checkMoneyAndBuyDiceAttribute = async () => {
+                try {
+                    const response = await fetch('/api/buyDiceAttr', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ carId, selectedPartFace, selectedDiceFace, id }),
+                    });
+                    const responseData = await response.json();
+
+                    console.log(response)
+                    
+                    if (response.status === 400) {
+                        Swal.fire({
+                            icon: "error",
+                            text: "Insufficient Funds!",
+                        });
+                    } else if (response.status === 200) {
+                        //console.log(responseData.carData[0].car)
+                        setCarData(responseData.carData[0].car)
+                        localStorage.setItem('money', responseData.money);
+                    } else {
+                        console.log(responseData)
+                    }
+                } catch (error) {
+                    console.error("Error buying car:", error);
+                }
+            }
+
         } else {
-            console.log("post request to select diceATTR " + id)
+            console.log("post request to select diceATTR " + id);
+
+            const selectDiceAttr = async () => {
+                try {
+                    const response = await fetch('/api/selectDiceAttr', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ carId, selectedPartFace, selectedDiceFace, id }),
+                    });
+                    const responseData = await response.json(); 
+                    
+                    if (response.status === 400) {
+                        console.log("Err")
+                    } else if (response.status === 200) {
+                        setCarData(responseData.carData[0].car)
+                    }
+                } catch (error) {
+                    console.error("Error buying car:", error);
+                }
+            }
+
+            selectDiceAttr()
         }
     }
 
@@ -237,13 +304,11 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 
                 <div className="item item5">
                     <div className="editboard-diceAttrContainer">
-                        {/* {console.log(carData?.parts[selectedPartFace]?.[selectedDiceFace])} */}
-
                         {carData?.parts[selectedPartFace]?.[selectedDiceFace].diceAttributes?.map((diceAttr, index) => (
-                        <div 
-                            className={`${diceAttr.owned ? 'editboard-diceAttr' : 'editboard-diceAttrNotOwned'} ${diceAttr.selected ? 'selected' : ''}`}
-                            key={index} 
-                            onClick={() => selectDiceAttr(diceAttr.id, diceAttr.owned)}
+                        <div
+                            className={`${diceAttr.owned ? 'editboard-diceAttr' : 'editboard-diceAttrNotOwned'} ${diceAttr.selected && diceAttr.owned ? 'selected' : ''}`}
+                            key={index}
+                            onClick={() => selectDiceAttr(diceAttr.id, diceAttr.owned, diceAttr.cost)}
                         >
                                 <div className="editboard-diceAttrName">{diceAttr.name}</div>
                                 <div className="editboard-diceAttrCost">${diceAttr.cost}</div>

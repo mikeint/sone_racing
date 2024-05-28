@@ -17,14 +17,12 @@ export const POST = async (request: any) => {
         if (!user) return new NextResponse("No user found", { status: 404 });
 
         const { carId, id, selectedPartFace } = await request.json();
-		//console.log("carId, partId, and part being passed in: ", carId,  id, selectedPartFace)
-
+		
 		// find the diceFace with the diceFaceId 
-		const foundCar: any = defaultCars.find(car => car.carId === carId);
-		//console.log("Actual cost of dice in backend:", foundCar?.parts[selectedPartFace]);
+		const carToUpdate: any = await UserCar.findOne({ 'car.carId': carId, 'userEmail': userEmail });
 
 		// then find the actual value of that diceFace
-		const diceFace = foundCar?.parts[selectedPartFace]?.filter((diceFace:any) => diceFace.id === id)
+		const diceFace = carToUpdate.car.parts[selectedPartFace]?.filter((diceFace:any) => diceFace.id === id)
 		const diceFaceValue = diceFace[0].cost;
 
 		//if the actualValue of the car exists
@@ -39,7 +37,6 @@ export const POST = async (request: any) => {
 				);
 				
 				// Step 1: Retrieve the item
-				const carToUpdate = await UserCar.findOne({ 'car.carId': carId });
 				const selectedItem = carToUpdate.car.parts[selectedPartFace][id - 1];
 				// // Step 2: Update the item
 				selectedItem.owned = true;

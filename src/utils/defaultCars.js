@@ -81,7 +81,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
@@ -386,7 +386,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
@@ -691,7 +691,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
@@ -996,7 +996,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1301,7 +1301,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1606,7 +1606,7 @@ const cars =
                     diceAttributes: [
                         { id: 1, name: "Boost", cost: 1000, horsepower: 52, weight: 0, shiftspeed: 0, wheelspin: 1, owned: true, selected:true },
                         { id: 2, name: "Turbo Stage 3", cost: 2000, horsepower: 65, weight: 75, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
-                        { id: 3, name: "Turbo Max", cost: 33000, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
+                        { id: 3, name: "Turbo Max", cost: 3300, horsepower: 65, weight: 20, shiftspeed: 0, wheelspin: 8, owned: false, selected:false },
                     ]
                 },
                 {
