@@ -36,7 +36,7 @@ export const POST = async (request: any) => {
 
 		const saveDefaultCar1 = new UserCar({
 			userEmail: newUser.email,
-			car: defaultCars[3]
+			car: defaultCars[1]
 		});
 		await saveDefaultCar1.save();
 

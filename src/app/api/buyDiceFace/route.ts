@@ -44,7 +44,7 @@ export const POST = async (request: any) => {
 				await carToUpdate.save();
   
 				if (carToUpdate) {
-					const carData = await UserCar.find({ 'car.carId': carId });
+					const carData = await UserCar.find({ 'car.carId': carId, 'userEmail': userEmail });
 					return new NextResponse(JSON.stringify({
 						carData: carData,
 						userMoney: user?.money

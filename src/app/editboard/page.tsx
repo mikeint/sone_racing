@@ -40,6 +40,10 @@ interface DiceAttribute {
     owned: boolean
     cost: number
     selected: boolean
+    horsepower: number
+    weight: number
+    shiftspeed: number
+    wheelspin: number
 }
 
 const EditBoard = ({ searchParams }: { searchParams: any }) => {
@@ -74,6 +78,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 
     const handlePartChooser = (partName: string) => {
         console.log("partName: ", partName)
+        setSelectedDiceFace(0);
         setselectedPartFace(partName);
     };
 
@@ -119,7 +124,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 						text: "Insufficient Funds!",
 					  });
 				} else if (response.status === 200) {
-                    console.log(responseData.carData)
+                    console.log(responseData.carData[0].car)
                     setCarData(responseData.carData[0].car)
 					localStorage.setItem('money', responseData.money);
 				}
@@ -160,9 +165,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                         },
                         body: JSON.stringify({ carId, selectedPartFace, selectedDiceFace, id }),
                     });
-                    const responseData = await response.json();
-
-                    console.log(response)
+                    const responseData = await response.json(); 
                     
                     if (response.status === 400) {
                         Swal.fire({
@@ -170,7 +173,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                             text: "Insufficient Funds!",
                         });
                     } else if (response.status === 200) {
-                        //console.log(responseData.carData[0].car)
+                        console.log(responseData.carData[0].car)
                         setCarData(responseData.carData[0].car)
                         localStorage.setItem('money', responseData.money);
                     } else {
@@ -209,6 +212,11 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
         }
     }
 
+    const setActiveClassForPart = (part:string, additionalClass = '') => {
+        const activeClass = part === selectedPartFace ? 'active' : '';
+        return `editboard-dicechoose ${additionalClass} ${activeClass}`.trim();
+    };
+
     return (
         <>
             <div className="editBoardTopNav">
@@ -234,18 +242,18 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="editboard-car"><img src={`./images/cars/${carData?.image}`} alt={''} /></div>
+                        <div className="editboard-car"><img src={`./images/cars/${carData?.image}`} alt={carData?.image} /></div>
                         </div>
                     </div>
                 </div>
                 <div className="item item2">
                     <div className="editboard-diceChooserContainer">
-                        <div className="editboard-dicechoose editboard-dc1" onClick={() => handlePartChooser('engine')}></div>
-                        <div className="editboard-dicechoose editboard-dc2" onClick={() => handlePartChooser('transmission')}></div>
-                        <div className="editboard-dicechoose editboard-dc3" onClick={() => handlePartChooser('tires')}></div>
-                        <div className="editboard-dicechoose editboard-dc4" onClick={() => handlePartChooser('turbo')}></div>
-                        <div className="editboard-dicechoose editboard-dc5" onClick={() => handlePartChooser('body')}></div>
-                        <div className="editboard-dicechoose editboard-dc6" onClick={() => handlePartChooser('intake')}></div>
+                        <div className={setActiveClassForPart('engine', 'editboard-dc1')} onClick={() => handlePartChooser('engine')}></div>
+                        <div className={setActiveClassForPart('transmission', 'editboard-dc2')} onClick={() => handlePartChooser('transmission')}></div>
+                        <div className={setActiveClassForPart('tires', 'editboard-dc3')} onClick={() => handlePartChooser('tires')}></div>
+                        <div className={setActiveClassForPart('turbo', 'editboard-dc4')} onClick={() => handlePartChooser('turbo')}></div>
+                        <div className={setActiveClassForPart('body', 'editboard-dc5')} onClick={() => handlePartChooser('body')}></div>
+                        <div className={setActiveClassForPart('intake', 'editboard-dc6')} onClick={() => handlePartChooser('intake')}></div>
                     </div>
                 </div>
 
@@ -304,14 +312,32 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 
                 <div className="item item5">
                     <div className="editboard-diceAttrContainer">
-                        {carData?.parts[selectedPartFace]?.[selectedDiceFace].diceAttributes?.map((diceAttr, index) => (
+                        {carData?.parts[selectedPartFace]?.[selectedDiceFace]?.diceAttributes?.map((diceAttr, index) => (
                         <div
                             className={`${diceAttr.owned ? 'editboard-diceAttr' : 'editboard-diceAttrNotOwned'} ${diceAttr.selected && diceAttr.owned ? 'selected' : ''}`}
                             key={index}
                             onClick={() => selectDiceAttr(diceAttr.id, diceAttr.owned, diceAttr.cost)}
                         >
-                                <div className="editboard-diceAttrName">{diceAttr.name}</div>
-                                <div className="editboard-diceAttrCost">${diceAttr.cost}</div>
+                                <div className="editboard-diceAttrTopContainer">
+                                    <div className="editboard-diceAttrName">{diceAttr.name}</div>
+                                    {diceAttr.owned ? '' : <div className="editboard-diceAttrCost">${diceAttr.cost}</div>}
+                                </div> 
+                                <div className="editboard-diceAttrValue">
+                                    <div>horsepower: {diceAttr.horsepower}</div>
+                                    <div style={{width: `${calculateBarWidths(diceAttr.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}></div>
+                                </div>
+                                <div className="editboard-diceAttrValue">
+                                    weight: {diceAttr.weight}
+                                    <div style={{width: `${calculateBarWidths(diceAttr.weight ?? 0, 0, 1500)}%`, backgroundColor: '#75FF33'}}></div>
+                                </div>
+                                <div className="editboard-diceAttrValue">
+                                    shiftspeed: {diceAttr.shiftspeed}
+                                    <div style={{width: `${calculateBarWidths(diceAttr.shiftspeed ?? 0, 0, 1500)}%`, backgroundColor: '#33C3FF'}}></div>
+                                </div>
+                                <div className="editboard-diceAttrValue">
+                                    wheelspin {diceAttr.wheelspin}
+                                    <div style={{width: `${calculateBarWidths(diceAttr.wheelspin ?? 0, 0, 1500)}%`, backgroundColor: '#FF33C7'}}></div>
+                                </div>
                             </div>
                         ))}
                     </div>

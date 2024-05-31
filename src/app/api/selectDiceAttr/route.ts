@@ -24,13 +24,48 @@ export const POST = async (request: any) => {
 		const selectedDiceFaceV2 = selectedDiceFaceV.diceAttributes.find((face: any) => face.id === id);
 
 		// Step 1: Retrieve the item  
-		const selectedItem = carToUpdate.car.parts[selectedPartFace][selectedDiceFace].diceAttributes[id - 1];
+		const selectedAttr = carToUpdate.car.parts[selectedPartFace][selectedDiceFace].diceAttributes[id - 1];
 		// Step 2: Update the items, set all to false, then set selected to true
 		selectedDiceFaceV.diceAttributes.forEach((attribute: any) => {
 			attribute.selected = false;
 		});
-		selectedItem.selected = true;
+		selectedAttr.selected = true;
 		// Step 3: Update the document
+
+
+
+
+		// const baseStats = carToUpdate.car.baseStats
+		
+		// let previouslySelectedAttr = {
+		// 	horsepower: selectedAttr.horsepower,
+		// 	weight: selectedAttr.weight,
+		// 	shiftspeed: selectedAttr.shiftspeed,
+		// 	wheelspin: selectedAttr.wheelspin
+		// };
+
+		// console.log("previouslySelectedAttr: ", previouslySelectedAttr);
+		// console.log("baseStats: ", baseStats);
+		
+		// // Subtract the stats of the previously selected attribute
+		// baseStats.horsepower -= previouslySelectedAttr.horsepower;
+		// baseStats.weight -= previouslySelectedAttr.weight;
+		// baseStats.shiftspeed -= previouslySelectedAttr.shiftspeed;
+		// baseStats.wheelspin -= previouslySelectedAttr.wheelspin;
+		
+		// // Add the stats of the new selected attribute
+		// baseStats.horsepower += selectedAttr.horsepower;
+		// baseStats.weight += selectedAttr.weight;
+		// baseStats.shiftspeed += selectedAttr.shiftspeed;
+		// baseStats.wheelspin += selectedAttr.wheelspin;
+		
+		// // Update the previously selected attribute
+		// previouslySelectedAttr = { ...selectedAttr };
+		
+		// console.log(selectedAttr.horsepower, selectedAttr.weight, selectedAttr.shiftspeed, selectedAttr.wheelspin);
+
+
+
 		await carToUpdate.save();
 
 		const carData = await UserCar.find({ 'car.carId': carId, 'userEmail': userEmail });
