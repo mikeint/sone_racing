@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import './editBoard.css';
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
+import { useMoney } from '../../contexts/MoneyContext';
 
 interface Car {
     tier: string
@@ -51,6 +52,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
     const [carData, setCarData] = useState<Car>();
     const [selectedPartFace, setselectedPartFace] = useState<string>("engine");
     const [selectedDiceFace, setSelectedDiceFace] = useState(0);
+    const { money, setMoney } = useMoney();
 
     useEffect(() => {
         if (carId) {
@@ -124,9 +126,8 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 						text: "Insufficient Funds!",
 					  });
 				} else if (response.status === 200) {
-                    console.log(responseData.carData[0].car)
+                    setMoney(responseData.userMoney)
                     setCarData(responseData.carData[0].car)
-					localStorage.setItem('money', responseData.money);
 				}
 			} catch (error) {
 				console.error("Error buying car:", error);
@@ -174,8 +175,8 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                         });
                     } else if (response.status === 200) {
                         console.log(responseData.carData[0].car)
+                        setMoney(responseData.userMoney)
                         setCarData(responseData.carData[0].car)
-                        localStorage.setItem('money', responseData.money);
                     } else {
                         console.log(responseData)
                     }
@@ -321,22 +322,26 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                 <div className="editboard-diceAttrTopContainer">
                                     <div className="editboard-diceAttrName">{diceAttr.name}</div>
                                     {diceAttr.owned ? '' : <div className="editboard-diceAttrCost">${diceAttr.cost}</div>}
-                                </div> 
-                                <div className="editboard-diceAttrValue">
-                                    <div>horsepower: {diceAttr.horsepower}</div>
-                                    <div style={{width: `${calculateBarWidths(diceAttr.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}></div>
                                 </div>
-                                <div className="editboard-diceAttrValue">
-                                    weight: {diceAttr.weight}
-                                    <div style={{width: `${calculateBarWidths(diceAttr.weight ?? 0, 0, 1500)}%`, backgroundColor: '#75FF33'}}></div>
+                                <div className="editboard-diceAttrValueContainer">
+                                    <div className="editboard-diceAttrValue">
+                                        <div>horsepower: {diceAttr.horsepower}</div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}></div>
+                                    </div>
+                                    <div className="editboard-diceAttrValue">
+                                        <div>weight: {diceAttr.weight} </div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.weight ?? 0, 0, 1500)}%`, backgroundColor: '#75FF33'}}></div>
+                                    </div>
                                 </div>
-                                <div className="editboard-diceAttrValue">
-                                    shiftspeed: {diceAttr.shiftspeed}
-                                    <div style={{width: `${calculateBarWidths(diceAttr.shiftspeed ?? 0, 0, 1500)}%`, backgroundColor: '#33C3FF'}}></div>
-                                </div>
-                                <div className="editboard-diceAttrValue">
-                                    wheelspin {diceAttr.wheelspin}
-                                    <div style={{width: `${calculateBarWidths(diceAttr.wheelspin ?? 0, 0, 1500)}%`, backgroundColor: '#FF33C7'}}></div>
+                                <div className="editboard-diceAttrValueContainer">
+                                    <div className="editboard-diceAttrValue">
+                                        <div>shiftspeed: {diceAttr.shiftspeed} </div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.shiftspeed ?? 0, 0, 1500)}%`, backgroundColor: '#33C3FF'}}></div>
+                                    </div>
+                                    <div className="editboard-diceAttrValue">
+                                        <div>wheelspin {diceAttr.wheelspin} </div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.wheelspin ?? 0, 0, 1500)}%`, backgroundColor: '#FF33C7'}}></div>
+                                    </div>
                                 </div>
                             </div>
                         ))}

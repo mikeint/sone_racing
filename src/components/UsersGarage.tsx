@@ -6,6 +6,7 @@ import Peddle from '../components/Peddle/Peddle'
 import defaultCars from '../utils/defaultCars'
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
+import { useMoney } from '../contexts/MoneyContext';
 
 interface Car {
 	carId: String,
@@ -23,6 +24,7 @@ const Register = () => {
 	const [error, setError] = useState("");
 	const router = useRouter();
 	const { data: session, status: sessionStatus } = useSession();
+    const { money, setMoney } = useMoney();
 
 	useEffect(() => {
 		if (sessionStatus === "authenticated") {
@@ -103,8 +105,8 @@ const Register = () => {
 						text: "You're Quicker Than I Thought",
 						icon: "success"
 					});
+					setMoney(responseData.userMoney)
 					setCars(responseData.userCars)
-					localStorage.setItem('money', responseData.money);
 				}
 			} catch (error) {
 				console.error("Error buying car:", error);

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/SessionProvider";
+import { MoneyProvider } from '../contexts/MoneyContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider session={session}>
-            {children}
-        </SessionProvider>
+          <MoneyProvider>
+              {children}
+          </MoneyProvider>
+          </SessionProvider>
       </body>
     </html>
   );

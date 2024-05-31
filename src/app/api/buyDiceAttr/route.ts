@@ -44,7 +44,7 @@ export const POST = async (request: any) => {
 			const carData = await UserCar.find({ 'car.carId': carId, 'userEmail': userEmail });
 			return new NextResponse(JSON.stringify({
 				carData: carData,
-				userMoney: user?.money
+				userMoney: updatedUserMoney.money
 			}), {
 				status: 200,
 				headers: {'Content-Type': 'application/json',},

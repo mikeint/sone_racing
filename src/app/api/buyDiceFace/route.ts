@@ -28,13 +28,14 @@ export const POST = async (request: any) => {
 		//if the actualValue of the car exists
 		if (diceFaceValue) { 
 			// If user has enough money
+			
 			if (user.money >= diceFaceValue) {
 				// remove user money value
 				const updatedUserMoney = await User.findOneAndUpdate(
 					{ email: userEmail },
 					{ $inc: { money: -diceFaceValue } },
 					{ new: true } 
-				);
+				); 
 				
 				// Step 1: Retrieve the item
 				const selectedItem = carToUpdate.car.parts[selectedPartFace][id - 1];
@@ -47,7 +48,7 @@ export const POST = async (request: any) => {
 					const carData = await UserCar.find({ 'car.carId': carId, 'userEmail': userEmail });
 					return new NextResponse(JSON.stringify({
 						carData: carData,
-						userMoney: user?.money
+						userMoney: updatedUserMoney.money
 					}), {
 						status: 200,
 						headers: {'Content-Type': 'application/json',},

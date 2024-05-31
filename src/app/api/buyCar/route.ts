@@ -34,7 +34,7 @@ export const POST = async (request: any) => {
 				const updatedUserMoney = await User.findOneAndUpdate(
 					{ email: userEmail },
 					{ $inc: { money: -actualValue } },
-					{ new: true } // Return the updated document
+					{ new: true } // Return the updated document, so that you can then do updatedUserMoney.money 
 				);
 
 				const addedUserCar = await UserCar.create({
@@ -49,7 +49,7 @@ export const POST = async (request: any) => {
 					const carObjects = userCars.map(doc => doc.car);
 					return new NextResponse(JSON.stringify({
 						userCars: carObjects,
-						userMoney: user?.money
+						userMoney: updatedUserMoney.money
 					}), {
 						status: 200,
 						headers: {'Content-Type': 'application/json',},
