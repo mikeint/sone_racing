@@ -1,25 +1,17 @@
 "use client"
 import React, { useEffect, useState } from "react"
+import 'sweetalert2/src/sweetalert2.scss';
+import Swal from 'sweetalert2'
 import { useRouter, redirect } from "next/navigation"
 import { useSession } from "next-auth/react"
 import Peddle from '../components/Peddle/Peddle'
 import defaultCars from '../utils/defaultCars'
-import 'sweetalert2/src/sweetalert2.scss';
-import Swal from 'sweetalert2'
 import { useMoney } from '../contexts/MoneyContext';
-
-interface Car {
-	carId: String,
-	make: string,
-	model: string,
-	year: number,
-    image: string,
-	tier: string,
-	value: number
-}
+import CarTile from "./CarTile"
+import { CarTileType } from '../types/CarTileType'; 
 
 const Register = () => {
-	const [userCars, setCars] = useState<Car[]>([]);
+	const [userCars, setCars] = useState<CarTileType[]>([]);
 	const [unownedCars, setUnownedCars] = useState<any[]>([]);
 	const [error, setError] = useState("");
 	const router = useRouter();
@@ -141,25 +133,13 @@ const Register = () => {
 			<div className="lg:text-2xl text-sm lg:m-5 ml-4 font-bold text-gray-900 ">GARAGE</div>
 
 			{/* DISPLAY OWNED CARS */ }
-			<div className="flex flex-wrap">
+ 			<div className="flex flex-wrap">
 				{userCars?.map((car, index) => (
-					<div key={index} className="lg:w-1/5 sm:w-1/4 w-1/2" onClick={() => redirectToEditCar(car.carId)}>
-						<div className="m-1 bg-white rounded-lg shadow-md cursor-pointer overflow-hidden">
-							<div className="bg-white p-4 border-b-0 shadow-md">
-								<img src={`./images/cars/${car.image}`} alt={`${car.make} ${car.model}`} className="w-full lg:h-70 h-40 object-contain" />
-							</div>
-							<div className="lg:p-4 p-2 flex flex-col relative">
-							<div className={`flex justify-between items-center `}>
-								<h1 className={`text-2xl font-bold lg:text-xl text-xs 'text-gray-700'`}>
-									{car.make} {car.model}
-								</h1>
-								<span className={`text-xs font-normal p-2 text-white ${car.tier === 'T1' ? 'bg-blue-500': ''} ${car.tier === 'T2' ? 'bg-purple-500': ''} ${car.tier === 'T3' ? 'bg-orange-500': ''}`}>{car.tier}</span>
-							</div>
-							<p className="text-gray-700 text-xs lg:text-lg text-left">Year: {car.year}</p>
-							<p className="text-gray-700 text-xs lg:text-lg text-left">Value: ${car.value?.toLocaleString()}</p>
-							</div>
-						</div>
-					</div>
+					<CarTile
+						key={index}
+						car={car}
+						onClick={() => redirectToEditCar(car.carId)}
+					/>
 				))}
 			</div>
 
@@ -167,23 +147,11 @@ const Register = () => {
 			{unownedCars.length !== 0  ? <div className="lg:text-2xl text-sm lg:m-5 ml-4 lg:mt-20 mt-10 font-bold text-gray-900">UNOWNED CARS</div>:''}
 			<div className="flex flex-wrap">
 				{unownedCars?.map((car, index) => (
-					<div key={index} className="lg:w-1/5 sm:w-1/4 w-1/2 overflow-hidden" onClick={() => buyCar(car.carId, car.make, car.model, car.value)}>
-						<div className="m-1 bg-white rounded-lg shadow-md cursor-pointer overflow-hidden">
-							<div className="bg-white p-4 border-b-0 shadow-md">
-								<img src={`./images/cars/${car.image}`} alt={`${car.make} ${car.model}`} className="w-full lg:h-70 h-40 object-contain" />
-							</div>
-							<div className="lg:p-4 p-2 flex flex-col relative">
-							<div className={`flex justify-between items-center `}>
-								<h1 className={`text-2xl font-bold lg:text-xl text-xs 'text-gray-700'`}>
-									{car.make} {car.model}
-								</h1>
-								<span className={`text-xs font-normal p-2 text-white ${car.tier === 'T1' ? 'bg-blue-500': ''} ${car.tier === 'T2' ? 'bg-purple-500': ''} ${car.tier === 'T3' ? 'bg-orange-500': ''}`}>{car.tier}</span>
-							</div>
-							<p className="text-gray-700 text-xs lg:text-lg text-left">Year: {car.year}</p>
-							<p className="text-gray-700 text-xs lg:text-lg text-left">Value: ${car.value?.toLocaleString()}</p>
-							</div>
-						</div>
-					</div>
+					<CarTile
+						key={index}
+						car={car}
+						onClick={() => buyCar(car.carId, car.make, car.model, car.value)}
+					/>
 				))}
 			</div> 
   

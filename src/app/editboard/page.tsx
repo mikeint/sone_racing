@@ -5,51 +5,11 @@ import './editBoard.css';
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
 import { useMoney } from '../../contexts/MoneyContext';
-
-interface Car {
-    tier: string
-    make: string
-    model: string
-    image: string
-    year: number
-    baseStats: BaseStats
-    parts: Parts
-}
-
-interface BaseStats {
-    horsepower: number
-    weight: number
-    shiftspeed: number
-    wheelspin: number
-}
-interface Parts {
-    [key: string]: Part[]
-}
-interface Part {
-    id: number
-    rollRate: string
-    name: string
-    owned: boolean
-    cost: number
-    diceAttributes?: DiceAttribute[]
-    image: string
-}
-
-interface DiceAttribute {
-    id: number
-    name: string
-    owned: boolean
-    cost: number
-    selected: boolean
-    horsepower: number
-    weight: number
-    shiftspeed: number
-    wheelspin: number
-}
+import { CarEditType } from '../../types/CarEditType'
 
 const EditBoard = ({ searchParams }: { searchParams: any }) => {
     const carId = JSON.stringify(searchParams.carId).replace(/"/g, '');
-    const [carData, setCarData] = useState<Car>();
+    const [carData, setCarData] = useState<CarEditType>();
     const [selectedPartFace, setselectedPartFace] = useState<string>("engine");
     const [selectedDiceFace, setSelectedDiceFace] = useState(0);
     const { money, setMoney } = useMoney();
@@ -297,7 +257,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                         <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}>
                             <span className="editboard-barLabel">horsepower: {carData?.baseStats?.horsepower}hp</span>
                         </div>
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.weight ?? 0, 1000, 7000)}%`, backgroundColor: '#75FF33'}}>
+                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.weight ?? 0, 1000, 7000)}%`, backgroundColor: '#ffd133'}}>
                             <span className="editboard-barLabel">weight: {carData?.baseStats?.weight}lbs</span>
                         </div>
                         <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.shiftspeed ?? 0, 1, 5)}%`, backgroundColor: '#33C3FF'}}>
@@ -330,7 +290,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                     </div>
                                     <div className="editboard-diceAttrValue">
                                         <div>weight: {diceAttr.weight} </div>
-                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.weight ?? 0, 0, 1500)}%`, backgroundColor: '#75FF33'}}></div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.weight ?? 0, 0, 1500)}%`, backgroundColor: '#ffd133'}}></div>
                                     </div>
                                 </div>
                                 <div className="editboard-diceAttrValueContainer">

@@ -283,7 +283,7 @@
     font-size: 13px;
     justify-content: center;
     font-weight: bold;
-    box-shadow: 25px 1px 9px -3px #b0b0b0;
+    box-shadow: 0px 2px 5px -4px #121212;
 }
 .editboard-diceAttrCost {
     justify-content: flex-end;
