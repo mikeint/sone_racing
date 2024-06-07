@@ -1,4 +1,4 @@
-export interface CarTileType {
+export interface CarCard {
     carId: string;
     make: string;
     model: string;
@@ -6,4 +6,5 @@ export interface CarTileType {
     image: string;
     tier: string;
     value: number;
+    selected: boolean;
 }

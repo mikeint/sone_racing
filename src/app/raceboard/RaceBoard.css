@@ -1,0 +1,23 @@
+.raceList {
+    display: flex;
+    flex-direction: column;
+}
+
+.raceTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.raceItem {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.raceItem.active {
+    background-color: #007bff;
+    color: #fff;
+}

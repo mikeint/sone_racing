@@ -2,16 +2,17 @@
 import React, { useEffect, useState } from "react"
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
-import { useRouter, redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import Peddle from '../components/Peddle/Peddle'
 import defaultCars from '../utils/defaultCars'
 import { useMoney } from '../contexts/MoneyContext';
-import CarTile from "./CarTile"
-import { CarTileType } from '../types/CarTileType'; 
+import CarTile from "./CarTile.tsx/CarTile"
+import { CarCard } from '../types/CarCard'; 
+import Loader from '../components/Loader/Loader';
 
 const Register = () => {
-	const [userCars, setCars] = useState<CarTileType[]>([]);
+	const [userCars, setUserCars] = useState<CarCard[]>([]);
 	const [unownedCars, setUnownedCars] = useState<any[]>([]);
 	const [error, setError] = useState("");
 	const router = useRouter();
@@ -53,7 +54,7 @@ const Register = () => {
 			
 			const cars = await res.json();
 			console.log("Owned cars returned to frontend: ", cars)
-			setCars(cars);
+			setUserCars(cars);
 
 		} catch (error) {
 			setError("Error fetching car data");
@@ -62,14 +63,11 @@ const Register = () => {
 	};
 
 	if (sessionStatus === "loading") {
-		return <h1>Loading...</h1>;
+		return <Loader/>;
 	}
-	
-	const redirectToEditCar = (carId: any) => {
-		router.replace(`/editboard?carId=${carId}`);
-	}
-	const redirectToGameBoard = () => {
-		router.replace("/gameboard");
+
+	const redirectToRaceBoard = () => {
+		router.replace("/raceboard");
 	};
 
 	const buyCar = (carId: number, make: string, model: string, value: number) => {
@@ -98,7 +96,7 @@ const Register = () => {
 						icon: "success"
 					});
 					setMoney(responseData.userMoney)
-					setCars(responseData.userCars)
+					setUserCars(responseData.userCars)
 				}
 			} catch (error) {
 				console.error("Error buying car:", error);
@@ -124,21 +122,49 @@ const Register = () => {
 			}).then((result) => {
 				if (result.isConfirmed) {
 					checkMoneyAndSetUserCars()
-				}   
+				}
 			});
+	}
+
+	const selectCar = (carId: String) => {
+
+		const selectCar = async () => {
+			try {
+				const response = await fetch('/api/selectCar', {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json',},
+					body: JSON.stringify({ carId }),
+				});
+				const responseData = await response.json(); 
+				
+				if (response.status === 400) {
+					Swal.fire({
+						icon: "error",
+						text: "error selecting car",
+					});
+				} else if (response.status === 200) {
+					setUserCars(responseData.userCars)
+				}
+			} catch (error) {
+				console.error("Error selecting car:", error);
+			}
+		}
+		selectCar()
 	}
 
 	return (
 		<>
-			<div className="lg:text-2xl text-sm lg:m-5 ml-4 font-bold text-gray-900 ">GARAGE</div>
+			<div className="lg:text-2xl text-sm lg:m-5 ml-1 font-bold text-gray-900 ">GARAGE</div>
 
 			{/* DISPLAY OWNED CARS */ }
- 			<div className="flex flex-wrap">
+ 			<div className={"flex flex-wrap"}>
 				{userCars?.map((car, index) => (
 					<CarTile
 						key={index}
 						car={car}
-						onClick={() => redirectToEditCar(car.carId)}
+						purchased={true}
+						onClick={() => selectCar(car.carId)}
+						selected={car.selected}
 					/>
 				))}
 			</div>
@@ -150,13 +176,13 @@ const Register = () => {
 					<CarTile
 						key={index}
 						car={car}
+						purchased={false}
 						onClick={() => buyCar(car.carId, car.make, car.model, car.value)}
 					/>
 				))}
 			</div> 
   
-
-			<Peddle redirect={()=>redirectToGameBoard()} /> 
+			<Peddle redirect={()=>redirectToRaceBoard()} /> 
 		</>
 
 	)

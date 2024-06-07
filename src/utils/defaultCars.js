@@ -8,7 +8,8 @@ const cars =
         tier: "T1",
         value: 10000,
         gears: 5,
-        image: "hondaCivic.png",
+        image: "hondaCivic.png", 
+        selected: true,
         baseStats:{
             horsepower: 96,
             weight: 2158,
@@ -327,6 +328,7 @@ const cars =
         value: 5000,
         gears: 4,
         image: "nissanPathfinder.png",
+        selected: false,
         baseStats:{
             horsepower: 250,
             weight: 4020,
@@ -645,6 +647,7 @@ const cars =
         value: 20000,
         gears: 6,
         image: "ferrariF40.png",
+        selected: false,
         baseStats:{
             horsepower: 650,
             weight: 3020,
@@ -963,6 +966,7 @@ const cars =
         value: 20000,
         gears: 5,
         image: "fiat131.png",
+        selected: false,
         baseStats:{
             horsepower: 350,
             weight: 1020,
@@ -1281,6 +1285,7 @@ const cars =
         value: 15000,
         gears: 5,
         image: "porsche928.png",
+        selected: false,
         baseStats:{
             horsepower: 550,
             weight: 2320,
@@ -1625,6 +1630,7 @@ const cars =
         value: 25000,
         gears: 5,
         image: "toyotaSupra.png",
+        selected: false,
         baseStats:{
             horsepower: 588,
             weight: 2420,

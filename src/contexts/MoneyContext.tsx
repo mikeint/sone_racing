@@ -10,7 +10,6 @@ const MoneyContext = createContext<MoneyContextType | undefined>(undefined);
 
 export const MoneyProvider = ({ children }: { children: ReactNode }) => {
     const [money, setMoney] = useState<number>(0);
-    const [email, setEmail] = useState<string>('');
 
     useEffect(() => {
         const fetchData = async () => {

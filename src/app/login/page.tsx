@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Loader from '../../components/Loader/Loader';
 
 const Login = () => {
 	const router = useRouter();
@@ -51,7 +52,7 @@ const Login = () => {
 	};
 
 	if (sessionStatus === "loading") {
-		return <h1>Loading...</h1>;
+		return <Loader/>;
 	}
 
 	return (

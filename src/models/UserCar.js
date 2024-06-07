@@ -33,6 +33,7 @@ const UserCarSchema = new mongoose.Schema({
     value: { type: Number },
     gears: { type: Number },
     image: { type: String },
+    selected: { type: Boolean, default: false },
     baseStats: {
       horsepower: { type: Number, required: true },
       weight: { type: Number, required: true },

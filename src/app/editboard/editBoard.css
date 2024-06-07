@@ -14,13 +14,14 @@
     display: flex;
     font-size: 24px;
     flex: 1 0 33.33%;
+    position: relative;
 }
 .item1 { 
-    flex-basis: 50%;
+    flex-basis: 55%;
     width: 40%;
 }
 .item2 { 
-    flex-basis: 50%;
+    flex-basis: 45%;
     width: 40%;
 }
 .item3 {
@@ -84,7 +85,7 @@
     margin-left: 10px;
 }
 .editboard-car {
-    margin-left: 10px;
+    margin-left: 10px; 
     margin-top: 10px;
     max-width: 300px;
 }
@@ -370,4 +371,4 @@
         flex-wrap: wrap;
         align-items: center;
     } 
-}
+}  

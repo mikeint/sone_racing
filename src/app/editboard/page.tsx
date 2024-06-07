@@ -6,6 +6,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
 import { useMoney } from '../../contexts/MoneyContext';
 import { CarEditType } from '../../types/CarEditType'
+import Loader from '../../components/Loader/Loader'
 
 const EditBoard = ({ searchParams }: { searchParams: any }) => {
     const carId = JSON.stringify(searchParams.carId).replace(/"/g, '');
@@ -187,25 +188,29 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 
             <div className="editBoardContainer">
                 <div className="item item1">
-                    <div className="editboard-fullCarContainer">
-                        <div className={`editboard-tier ${carData?.tier === 'T1' ? 'bg-blue-500': ''} ${carData?.tier === 'T2' ? 'bg-purple-500': ''} ${carData?.tier === 'T3' ? 'bg-orange-500': ''}`}>{carData?.tier}</div>
-                        <div className="editboard-carContainer">
-                        <div className="editboard-nameContainer">
-                            <div className="editboard-logo">
-                                <img src={`./images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
+                    {carData ?
+                        <div className="editboard-fullCarContainer">
+                            <div className={`editboard-tier ${carData?.tier === 'T1' ? 'bg-blue-500': ''} ${carData?.tier === 'T2' ? 'bg-purple-500': ''} ${carData?.tier === 'T3' ? 'bg-orange-500': ''}`}>{carData?.tier}</div>
+                            <div className="editboard-carContainer">
+                            <div className="editboard-nameContainer">
+                                <div className="editboard-logo">
+                                    <img src={`./images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
+                                </div>
+                                <div className="editboard-details">
+                                    <div className="editboard-name">
+                                        {carData?.make + ' ' + carData?.model}
+                                    </div>
+                                    <div className="editboard-year">
+                                        {carData?.year}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="editboard-details">
-                                <div className="editboard-name">
-                                    {carData?.make + ' ' + carData?.model}
-                                </div>
-                                <div className="editboard-year">
-                                    {carData?.year}
-                                </div>
+                            <div className="editboard-car"><img src={`./images/cars/${carData?.image}`} alt={carData?.image} /></div>
                             </div>
                         </div>
-                        <div className="editboard-car"><img src={`./images/cars/${carData?.image}`} alt={carData?.image} /></div>
-                        </div>
-                    </div>
+                    :
+                    <Loader/>
+                    }
                 </div>
                 <div className="item item2">
                     <div className="editboard-diceChooserContainer">

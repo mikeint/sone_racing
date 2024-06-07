@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center w-full">
             {/* Garage image on the top left side */}
 			<Link href="/dashboard"> 
-                <img src="images/garage.png" alt="garage" className="lg:h-60 h-40 cursor-pointer pl-2" />
+                <img src="images/garage.png" alt="garage" className="lg:h-60 h-40 cursor-pointer" />
 			</Link>
  
             <div className="font-bold text-lg">Cash:${money}</div>

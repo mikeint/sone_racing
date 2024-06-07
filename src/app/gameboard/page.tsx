@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import GameBoardNavBar from '../../components/GameBoardNavBar'
 import './GameBoard.css'
 
-const GameBoard: React.FC = () => {
+const GameBoard = () => {
 
     const diceData = [
         [1, 2, 3, 4],       // Dice 1 with 6 sides
