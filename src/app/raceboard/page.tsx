@@ -7,8 +7,8 @@ import './RaceBoard.css'
 
 
 const raceTypes = [
-    'Practice', 
-    '1/4 mile', 
+    'Practice',
+    '1/4 mile',
     '1/2 mile'
 ];
 

@@ -1,4 +1,4 @@
-.wrapper {
+.dicesContainer {
     display: flex;
     width: 100%;
 }
@@ -97,9 +97,6 @@
   }
 }
 
-
-
-
 /* MOBILE DICE */
 @media only screen and (max-width: 1280px) {
   .dice-container {
@@ -172,4 +169,8 @@
       margin: 20px 0 0 13px;
     }
   }
+}
+
+.selectedCarImage {
+  width: 100px;
 }
