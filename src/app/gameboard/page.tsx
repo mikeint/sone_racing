@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import GameBoardNavBar from '../../components/GameBoardNavBar'
 import './GameBoard.css'
 import Loader from "@/components/Loader/Loader"
+import { CarCard } from "@/types/CarCard"
 
 const GameBoard = () => {
 	const { data: session, status: sessionStatus } = useSession();
@@ -27,7 +28,8 @@ const GameBoard = () => {
         [1, 2, 3, 4, 5, 6], // Dice 5 with 5 sides
         [1, 2, 3, 4, 5]     // Dice 6 with 5 sides
     ]) //DEFAULT 
-    const [selectedCar, setSelectedCar] = useState()
+    const [selectedCar, setSelectedCar] = useState<CarCard>()
+    const [diceRolls, setDiceRolls] = useState<any>()
 
     useEffect(() => {
         const fetchSelectedCar = async () => {
@@ -71,11 +73,14 @@ const GameBoard = () => {
 
         // Display all dice on first load
         wrapperRefs.current.forEach((wrapper, index) => {
-            diceRefs.current[index].innerText = diceData[index][0].toString();
+            //diceRefs.current[index].innerText = diceData[index][0].toString();
+            diceRefs.current[index].classList.add("dice"+diceData[index][0].toString());
         });
     }, []);
     
     const diceThrow = () => {
+        // clear dice refs classes
+        document.querySelectorAll('.dice').forEach(element =>element.className = 'dice');
         for (let i = 0; i < wrapperRefs.current.length; i++) {
             wrapperRefs.current[i].style.animationPlayState = "running";
         }
@@ -87,15 +92,17 @@ const GameBoard = () => {
         }
     
         // Generate random index for each dice
-        const scores: number[] = diceData.map(dice => {
+        const points: number[] = diceData.map(dice => {
             return Math.floor(Math.random() * dice.length);
         });
         // Display the rolled dice
-        scores.forEach((score, index) => {
-            diceRefs.current[index].innerText = diceData[index][score].toString();
+        points.forEach((score, index) => {
+            //diceRefs.current[index].innerText = diceData[index][score].toString(); //the value
+            //TO DO : CHANGE THIS CLASS TO BE AN IMAGE
+            diceRefs.current[index].classList.add("dice"+diceData[index][score].toString());
         });
-        
-        console.log(scores.map(score => score + 1));
+        const increasePointsBy1 = points.map(score => score + 1);
+        setDiceRolls(increasePointsBy1) 
     }
     
 
@@ -107,12 +114,14 @@ const GameBoard = () => {
                 {diceData.map((dice, index) => (
                     <div className="dice-wrapper" key={index}>
                         <div className="dice-container">
-                            <p className="dice" ref={(el) => (diceRefs.current[index] = el || document.createElement("p"))}></p>
+                            <div className="dice" ref={(el) => (diceRefs.current[index] = el || document.createElement("div"))}></div>
                         </div>
                     </div>
                 ))}
             </div>
 
+            <img className="treesImage" src={'./images/tree2.png'} alt={"trees"} />
+            <img className="roadImage" src={'./images/road.png'} alt={"road"} />
             <div className="selectedCarImage">
                 {selectedCar ? <img src={`./images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
             </div>

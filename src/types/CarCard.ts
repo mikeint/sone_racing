@@ -7,4 +7,5 @@ export interface CarCard {
     tier: string;
     value: number;
     selected: boolean;
+    level: number;
 }

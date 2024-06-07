@@ -10,6 +10,7 @@ const cars =
         gears: 5,
         image: "hondaCivic.png", 
         selected: true,
+        level: 0,
         baseStats:{
             horsepower: 96,
             weight: 2158,
@@ -329,6 +330,7 @@ const cars =
         gears: 4,
         image: "nissanPathfinder.png",
         selected: false,
+        level: 0,
         baseStats:{
             horsepower: 250,
             weight: 4020,
@@ -648,6 +650,7 @@ const cars =
         gears: 6,
         image: "ferrariF40.png",
         selected: false,
+        level: 0,
         baseStats:{
             horsepower: 650,
             weight: 3020,
@@ -967,6 +970,7 @@ const cars =
         gears: 5,
         image: "fiat131.png",
         selected: false,
+        level: 0,
         baseStats:{
             horsepower: 350,
             weight: 1020,
@@ -1286,6 +1290,7 @@ const cars =
         gears: 5,
         image: "porsche928.png",
         selected: false,
+        level: 0,
         baseStats:{
             horsepower: 550,
             weight: 2320,
@@ -1631,6 +1636,7 @@ const cars =
         gears: 5,
         image: "toyotaSupra.png",
         selected: false,
+        level: 0,
         baseStats:{
             horsepower: 588,
             weight: 2420,
