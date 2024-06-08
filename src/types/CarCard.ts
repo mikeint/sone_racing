@@ -8,4 +8,11 @@ export interface CarCard {
     value: number;
     selected: boolean;
     level: number;
+    baseStats: BaseStats;
+}
+interface BaseStats {
+    horsepower: number;
+    weight: number;
+    acceleration: number;
+    wheelspin: number;
 }

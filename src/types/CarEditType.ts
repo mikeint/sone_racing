@@ -11,7 +11,7 @@ export interface CarEditType {
 export interface BaseStats {
     horsepower: number
     weight: number
-    shiftspeed: number
+    acceleration: number
     wheelspin: number
 }
 interface Parts {
@@ -35,6 +35,6 @@ export interface DiceAttribute {
     selected: boolean
     horsepower: number
     weight: number
-    shiftspeed: number
+    acceleration: number
     wheelspin: number
 }

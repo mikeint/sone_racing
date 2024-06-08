@@ -40,7 +40,7 @@ export const POST = async (request: any) => {
 		// let previouslySelectedAttr = {
 		// 	horsepower: selectedAttr.horsepower,
 		// 	weight: selectedAttr.weight,
-		// 	shiftspeed: selectedAttr.shiftspeed,
+		// 	acceleration: selectedAttr.acceleration,
 		// 	wheelspin: selectedAttr.wheelspin
 		// };
 
@@ -50,19 +50,19 @@ export const POST = async (request: any) => {
 		// // Subtract the stats of the previously selected attribute
 		// baseStats.horsepower -= previouslySelectedAttr.horsepower;
 		// baseStats.weight -= previouslySelectedAttr.weight;
-		// baseStats.shiftspeed -= previouslySelectedAttr.shiftspeed;
+		// baseStats.acceleration -= previouslySelectedAttr.acceleration;
 		// baseStats.wheelspin -= previouslySelectedAttr.wheelspin;
 		
 		// // Add the stats of the new selected attribute
 		// baseStats.horsepower += selectedAttr.horsepower;
 		// baseStats.weight += selectedAttr.weight;
-		// baseStats.shiftspeed += selectedAttr.shiftspeed;
+		// baseStats.acceleration += selectedAttr.acceleration;
 		// baseStats.wheelspin += selectedAttr.wheelspin;
 		
 		// // Update the previously selected attribute
 		// previouslySelectedAttr = { ...selectedAttr };
 		
-		// console.log(selectedAttr.horsepower, selectedAttr.weight, selectedAttr.shiftspeed, selectedAttr.wheelspin);
+		// console.log(selectedAttr.horsepower, selectedAttr.weight, selectedAttr.acceleration, selectedAttr.wheelspin);
 
 
 

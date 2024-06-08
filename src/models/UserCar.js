@@ -6,7 +6,7 @@ const singleDiceAttributeSchema = new mongoose.Schema({
   cost: { type: Number, required: true },
   horsepower: { type: Number, required: true },
   weight: { type: Number, required: true },
-  shiftspeed: { type: Number, required: true },
+  acceleration: { type: Number, required: true },
   wheelspin: { type: Number, required: true },
   owned: { type: Boolean, required: true },
   selected: { type: Boolean, required: true }
@@ -38,7 +38,7 @@ const UserCarSchema = new mongoose.Schema({
     baseStats: {
       horsepower: { type: Number, required: true },
       weight: { type: Number, required: true },
-      shiftspeed: { type: Number, required: true }, 
+      acceleration: { type: Number, required: true }, 
       wheelspin: { type: Number, required: true }
     },
     parts: {

@@ -137,6 +137,9 @@
     overflow: scroll;
     flex-direction: column; 
 }
+.editboard-diceContainer::-webkit-scrollbar {
+    display: none;
+}
 .editboard-diceRow {
     display: flex;
     width: 100%;

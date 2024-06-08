@@ -260,13 +260,13 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                 <div className="item item4">
                     <div className="editboard-barGraph">
                         <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}>
-                            <span className="editboard-barLabel">horsepower: {carData?.baseStats?.horsepower}hp</span>
+                            <span className="editboard-barLabel">horsepower: {carData?.baseStats?.horsepower}</span>
                         </div>
                         <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.weight ?? 0, 1000, 7000)}%`, backgroundColor: '#ffd133'}}>
                             <span className="editboard-barLabel">weight: {carData?.baseStats?.weight}lbs</span>
                         </div>
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.shiftspeed ?? 0, 1, 5)}%`, backgroundColor: '#33C3FF'}}>
-                            <span className="editboard-barLabel">shiftspeed: {carData?.baseStats?.shiftspeed}s</span>
+                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.acceleration ?? 0, 1, 100)}%`, backgroundColor: '#33C3FF'}}>
+                            <span className="editboard-barLabel">acceleration: {carData?.baseStats?.acceleration}</span>
                         </div>
                         <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.wheelspin ?? 0, 0, 100)}%`, backgroundColor: '#FF33C7'}}>
                             <span className="editboard-barLabel">wheelspin: {carData?.baseStats?.wheelspin}%</span>
@@ -300,8 +300,8 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                 </div>
                                 <div className="editboard-diceAttrValueContainer">
                                     <div className="editboard-diceAttrValue">
-                                        <div>shiftspeed: {diceAttr.shiftspeed} </div>
-                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.shiftspeed ?? 0, 0, 1500)}%`, backgroundColor: '#33C3FF'}}></div>
+                                        <div>acceleration: {diceAttr.acceleration} </div>
+                                        <div className="editboard-diceAttrValueBar" style={{width: `${calculateBarWidths(diceAttr.acceleration ?? 0, 0, 1500)}%`, backgroundColor: '#33C3FF'}}></div>
                                     </div>
                                     <div className="editboard-diceAttrValue">
                                         <div>wheelspin {diceAttr.wheelspin} </div>

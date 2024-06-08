@@ -30,6 +30,7 @@ const GameBoard = () => {
     ]) //DEFAULT 
     const [selectedCar, setSelectedCar] = useState<CarCard>()
     const [diceRolls, setDiceRolls] = useState<any>()
+    const [car1Position, setPosition] = useState(0); // Initial position 
 
     useEffect(() => {
         const fetchSelectedCar = async () => {
@@ -39,21 +40,19 @@ const GameBoard = () => {
                     headers: {"Content-Type": "application/json"},
                 });
                 if (!res.ok) throw new Error("Failed to fetch car data");
-                
                 const returnedCar = await res.json();
-
                 setSelectedCar(returnedCar.car)
 
-                const diceData = [
-                    Array.from({ length: returnedCar.car.parts.engine.length || 0 }, (_, i) => i + 1),
-                    Array.from({ length: returnedCar.car.parts.turbo.length || 0 }, (_, i) => i + 1),
-                    Array.from({ length: returnedCar.car.parts.intake.length || 0 }, (_, i) => i + 1),
-                    Array.from({ length: returnedCar.car.parts.body.length || 0 }, (_, i) => i + 1),
-                    Array.from({ length: returnedCar.car.parts.tires.length || 0 }, (_, i) => i + 1),
-                    Array.from({ length: returnedCar.car.parts.transmission.length || 0 }, (_, i) => i + 1)
-                ]; 
-                console.log(diceData)
+                const parts = ['engine', 'turbo', 'intake', 'body', 'tires', 'transmission'];
+                const faceIds = parts.map(part => 
+                    returnedCar.car.parts[part].filter(({ owned }: any) => owned).map(({ id }: any) => id)
+                );
+
+                const diceData = faceIds;
+                console.log("DICE DATA: ", diceData);
+
                 setDiceData(diceData);
+
                 
             } catch (error) { 
                 console.error(error);
@@ -90,21 +89,55 @@ const GameBoard = () => {
                 wrapperRefs.current[i].style.removeProperty("animation-play-state");
             }, Math.floor(Math.random() * 600));
         }
-    
-        // Generate random index for each dice
+        // 1-6 each dice
         const points: number[] = diceData.map(dice => {
             return Math.floor(Math.random() * dice.length);
         });
         // Display the rolled dice
+        let diceRolls: any = [];
         points.forEach((score, index) => {
             //diceRefs.current[index].innerText = diceData[index][score].toString(); //the value
-            //TO DO : CHANGE THIS CLASS TO BE AN IMAGE
+            //TO-DO: CHANGE THIS CLASS TO BE AN IMAGE
             diceRefs.current[index].classList.add("dice"+diceData[index][score].toString());
+            diceRolls.push(diceData[index][score])
         });
-        const increasePointsBy1 = points.map(score => score + 1);
-        setDiceRolls(increasePointsBy1) 
+        setDiceRolls(diceRolls) 
+
+        // TO-DO: CONVERT BASESTATS TO PIXELS 
+        // then add diceRolls to basestats
+        console.log("DICEROLLS: -----", diceRolls)
+
+        let accumulatedHorsepower = 90;
+        let accumulatedAcceleration = 4;
+        let accumulatedWeight = 700;
+        let accumulatedWheelspin = 10;
+
+        let currentRollStats = {}
+        if (selectedCar) {
+            currentRollStats = {
+                "horsepower": selectedCar.baseStats.horsepower + accumulatedHorsepower,
+                "acceleration": selectedCar.baseStats.acceleration + accumulatedAcceleration,
+                "weight": selectedCar.baseStats.weight + accumulatedWeight,
+                "wheelspin": selectedCar.baseStats.wheelspin + accumulatedWheelspin,
+            }
+        }
+
+        console.log("DISTANCE::::: ", convertToPixels(currentRollStats)) 
+        setPosition(prevPosition => prevPosition + (convertToPixels(currentRollStats)));
     }
+
+    function convertToPixels(stats: any) {
+        const mPower=1;
+        const normHp = (stats.horsepower - 50) / (500 - 50);
+        const normWt = (4000 - (stats.weight*1)) / (4000 - 1000);
+        const normSs = (stats.acceleration - 1) / (10 - 1);
+        //const normWs = (stats.wheelspin - 1) / (10 - 1); //wheelspin... /
     
+        const weightedSum = (0.4 * normHp) + (0.3 * normWt) + (0.2 * normSs) //+ (0.1 * normWs);
+        const speedPixelsPerFrame = mPower * weightedSum;
+    
+        return speedPixelsPerFrame * 50
+    }
 
     return (
         <>
@@ -120,13 +153,13 @@ const GameBoard = () => {
                 ))}
             </div>
 
-            <img className="treesImage" src={'./images/tree2.png'} alt={"trees"} />
-            <img className="roadImage" src={'./images/road.png'} alt={"road"} />
-            <div className="selectedCarImage">
+            <div className="treesImage"></div> 
+            <div className="distanceTravelled">{Math.round(car1Position)}</div>
+            <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
                 {selectedCar ? <img src={`./images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
             </div>
 
-            <Peddle diceThrow={() => diceThrow()} /> 
+            {selectedCar && <Peddle diceThrow={() => diceThrow()} />}
         </>
     );
 };

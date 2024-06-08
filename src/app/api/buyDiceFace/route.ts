@@ -3,7 +3,6 @@ import UserCar from "@/models/UserCar";
 import connect from "@/utils/db";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
-import defaultCars from '../../../utils/defaultCars';
 
 export const POST = async (request: any) => {
     await connect();
