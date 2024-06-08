@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/NavBar/NavBar";
 import UsersGarage from "@/components/UsersGarage";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

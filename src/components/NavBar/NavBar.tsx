@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
-import { useMoney } from '../contexts/MoneyContext';
+import { useMoney } from '../../contexts/MoneyContext';
+import './NavBar.css'
 
 const Navbar = () => {
     const [data, setData] = useState({ email: '', money: null }); 
@@ -10,13 +11,16 @@ const Navbar = () => {
     
 
     return (
-        <div className="flex justify-between items-center w-full">
+        <div className="navBarContainer">
             {/* Garage image on the top left side */}
 			<Link href="/dashboard"> 
                 <img src="images/garage.png" alt="garage" className="lg:h-60 h-40 cursor-pointer" />
 			</Link>
  
-            <div className="font-bold text-lg">Cash:${money}</div>
+            <div className="cashContainer">
+                <img src={"./images/coin.png"} alt={"coin"}/>
+                {money}
+            </div>
             
             {/* Email and Logout button on the top right side */}
             <div className="flex items-center space-x-4">

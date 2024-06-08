@@ -7,9 +7,9 @@ import './RaceBoard.css'
 
 
 const raceTypes = [
-    'Practice',
-    '1/4 mile',
-    '1/2 mile'
+    ['Practice', 50],
+    ['1/4 mile', 200],
+    ['1/2 mile', 100]
 ];
 
 const RaceBoard = () => {
@@ -35,7 +35,8 @@ const RaceBoard = () => {
                         className={`raceItem ${index === activeRace ? 'active' : ''}`}
                         onClick={() => handleItemClick(index)}
                     >
-                    {race}
+                        <div className="racetype">{race[0]}</div>
+                        <div className="award"><img src={"./images/coin.png"} alt={"coin"}/>{race[1]}</div>
                     </div>
                 ))}
 

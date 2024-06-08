@@ -12,6 +12,7 @@
     transition:0.3s;
     margin-right: 12px;
     margin-bottom:12px;
+    opacity: 0.4;
 }
 .peddle span {
       height:32px;

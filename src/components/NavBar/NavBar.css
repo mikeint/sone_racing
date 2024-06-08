@@ -1,0 +1,16 @@
+.navBarContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.cashContainer {
+    display: flex;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.cashContainer img {
+    width: 25px;
+    height: 25px;
+}
