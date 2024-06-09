@@ -42,22 +42,22 @@
   background-position: center;
 }
 .dice1 {
-  background-image: url('../../../public/images/dice/1.png');
+  background-image: url('/images/dice/1.png');
 }
 .dice2 {
-  background-image: url('../../../public/images/dice/2.png');
+  background-image: url('/images/dice/2.png');
 }
 .dice3 {
-  background-image: url('../../../public/images/dice/3.png');
+  background-image: url('/images/dice/3.png');
 }
 .dice4 {
-  background-image: url('../../../public/images/dice/4.png');
+  background-image: url('/images/dice/4.png');
 }
 .dice5 {
-  background-image: url('../../../public/images/dice/5.png');
+  background-image: url('/images/dice/5.png');
 }
 .dice6 {
-  background-image: url('../../../public/images/dice/6.png');
+  background-image: url('/images/dice/6.png');
 }
 
 @keyframes spin {

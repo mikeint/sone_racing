@@ -10,7 +10,7 @@ interface Credentials {
     password: string;
 }
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             id: "credentials",
@@ -29,12 +29,7 @@ export const authOptions: NextAuthOptions = {
                             user.password
                         );
                         if (isPasswordCorrect) {
-                            // return {
-                            //     id: user._id.toString(),
-                            //     email: user.email,
-                            //     money: user.money,
-                            // };
-							return user;
+                            return user;
                         }
                     }
                 } catch (err: any) {
@@ -45,20 +40,6 @@ export const authOptions: NextAuthOptions = {
         }),
     ],
     callbacks: {
-        // async jwt({ token, user }) {
-        //     if (user) {
-		// 		token.email = user.email;
-		// 		token.money = user.money;
-        //     }
-        //     return token;
-        // },
-        // async session({ session, token }) {
-        //     if (token) {
-		// 		session.user.money = token.money as number;
-        //     }
-        //     return session;
-        // },
-
         async signIn({ user, account }) {
             if (account?.provider === "credentials") {
                 return true;
@@ -68,5 +49,5 @@ export const authOptions: NextAuthOptions = {
     },
 };
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
