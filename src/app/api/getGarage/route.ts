@@ -27,9 +27,7 @@ export const GET = async (request: any) => {
 
 		return new NextResponse(JSON.stringify(carObjects), {
 			status: 200,
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers: {'Content-Type': 'application/json',},
 		});
 	} catch (error) {
 		return new NextResponse("Internal Server Error", { status: 500 });

@@ -46,9 +46,7 @@ const Register = () => {
 		try {
 			const res = await fetch("/api/getGarage", {
 				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
+				headers: {"Content-Type": "application/json",},
 			});
 			if (!res.ok) throw new Error("Failed to fetch car data");
 			
@@ -77,9 +75,7 @@ const Register = () => {
 			try {
 				const response = await fetch('/api/buyCar', {
 					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
+					headers: {'Content-Type': 'application/json',},
 					body: JSON.stringify({ carId }),
 				});
 				const responseData = await response.json(); 

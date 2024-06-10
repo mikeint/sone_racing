@@ -74,9 +74,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
 			try {
 				const response = await fetch('/api/buyDiceFace', {
 					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
+					headers: {'Content-Type': 'application/json',},
 					body: JSON.stringify({ carId, id, selectedPartFace }),
 				});
 				const responseData = await response.json(); 
@@ -122,9 +120,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                 try {
                     const response = await fetch('/api/buyDiceAttr', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: {'Content-Type': 'application/json',},
                         body: JSON.stringify({ carId, selectedPartFace, selectedDiceFace, id }),
                     });
                     const responseData = await response.json(); 
@@ -153,9 +149,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                 try {
                     const response = await fetch('/api/selectDiceAttr', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: {'Content-Type': 'application/json',},
                         body: JSON.stringify({ carId, selectedPartFace, selectedDiceFace, id }),
                     });
                     const responseData = await response.json(); 

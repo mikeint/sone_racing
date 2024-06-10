@@ -23,9 +23,7 @@ export const GET = async () => {
 
 		return new NextResponse(JSON.stringify({ email: user.email, money: user.money }), {
 			status: 200,
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers: {'Content-Type': 'application/json',},
 		});
 	} catch (error) {
 		console.error(error);

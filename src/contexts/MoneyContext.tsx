@@ -16,9 +16,7 @@ export const MoneyProvider = ({ children }: { children: ReactNode }) => {
             try {
                 const response = await fetch('/api/getMoney', {
                     method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: {'Content-Type': 'application/json',},
                 });
                 if (!response.ok) throw new Error(`Error: ${response.statusText}`);
 

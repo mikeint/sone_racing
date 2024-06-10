@@ -34,9 +34,7 @@ export const GET = async (req: any, res: any) => {
         // Return just the car object without wrapping it in another object
         return new NextResponse(JSON.stringify(car.car), {
             status: 200,
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: {'Content-Type': 'application/json',},
         });
     } catch (error) {
         console.error(error);
