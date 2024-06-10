@@ -7,6 +7,7 @@ import GameBoardNavBar from '../../components/GameBoardNavBar'
 import './GameBoard.css'
 import Loader from "@/components/Loader/Loader"
 import { CarCard } from "@/types/CarCard"
+import Image from 'next/image';
 
 const GameBoard = () => {
 	const { data: session, status: sessionStatus } = useSession();
@@ -156,7 +157,7 @@ const GameBoard = () => {
             <div className="treesImage"></div> 
             <div className="distanceTravelled">{Math.round(car1Position)}</div>
             <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
-                {selectedCar ? <img src={`./images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
+                {selectedCar ? <Image width={500} height={500} src={`/images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
             </div>
 
             {selectedCar && <Peddle diceThrow={() => diceThrow()} />}

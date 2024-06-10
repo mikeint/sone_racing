@@ -4,6 +4,7 @@ import Peddle from '../../components/Peddle/Peddle'
 import GameBoardNavBar from '../../components/GameBoardNavBar'
 import { useRouter } from "next/navigation"
 import './RaceBoard.css'
+import Image from 'next/image';
 
 
 const raceTypes = [
@@ -36,7 +37,7 @@ const RaceBoard = () => {
                         onClick={() => handleItemClick(index)}
                     >
                         <div className="racetype">{race[0]}</div>
-                        <div className="award"><img src={"./images/coin.png"} alt={"coin"}/>{race[1]}</div>
+                        <div className="award"><Image width={500} height={500} src={"/images/coin.png"} alt={"coin"}/>{race[1]}</div>
                     </div>
                 ))}
 

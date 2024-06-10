@@ -4,6 +4,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useMoney } from '../../contexts/MoneyContext';
 import './NavBar.css'
+import Image from 'next/image';
 
 const Navbar = () => {
     const [data, setData] = useState({ email: '', money: null }); 
@@ -14,11 +15,11 @@ const Navbar = () => {
         <div className="navBarContainer">
             {/* Garage image on the top left side */}
 			<Link href="/dashboard"> 
-                <img src="images/garage.png" alt="garage" className="lg:h-60 h-40 cursor-pointer" />
+                <Image width={500} height={500} src="/images/garage.png" alt="garage" className="navBarImage" />
 			</Link>
  
             <div className="cashContainer">
-                <img src={"./images/coin.png"} alt={"coin"}/>
+                <Image width={500} height={500} src={"/images/coin.png"} alt={"coin"}/>
                 {money}
             </div>
             
