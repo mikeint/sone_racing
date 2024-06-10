@@ -8,7 +8,7 @@ const Dashboard = async () => {
     const session = await getServerSession();
     console.log("dashboard (Serverside) Sesh:", session)
     if (!session) {
-        //redirect("/login");
+        redirect("/login");
     }
 	
     return (

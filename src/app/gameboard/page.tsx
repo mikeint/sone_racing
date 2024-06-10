@@ -14,7 +14,7 @@ const GameBoard = () => {
 
     useEffect(() => {
 		if (sessionStatus !== "authenticated") {
-			//router.replace("/login");
+			router.replace("/login");
 		}
 	}, [sessionStatus, router]);
 
