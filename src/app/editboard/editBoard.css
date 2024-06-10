@@ -307,8 +307,7 @@
     display: flex; 
     width: 50%;
     align-items: center;
-    background: #0000ff0d;
-    margin: 3px;
+    background: #0000ff0d; 
 }
 .editboard-diceAttrValueBar {
     height: 100%;

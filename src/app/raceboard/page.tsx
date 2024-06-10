@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react"
 import Peddle from '../../components/Peddle/Peddle'
-import GameBoardNavBar from '../../components/GameBoardNavBar'
+import NavBar from '../../components/NavBar/NavBar'
 import { useRouter } from "next/navigation"
 import './RaceBoard.css'
 import Image from 'next/image';
@@ -27,7 +27,7 @@ const RaceBoard = () => {
 
     return (
         <>
-        <GameBoardNavBar />
+        <NavBar />
             <>
                 <div className="raceTitle">Races</div>
                 {raceTypes.map((race, index) => (

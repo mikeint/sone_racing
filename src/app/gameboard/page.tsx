@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import Peddle from '../../components/Peddle/Peddle'
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import GameBoardNavBar from '../../components/GameBoardNavBar'
+import NavBar from '../../components/NavBar/NavBar'
 import './GameBoard.css'
 import Loader from "@/components/Loader/Loader"
 import { CarCard } from "@/types/CarCard"
@@ -142,7 +142,7 @@ const GameBoard = () => {
 
     return (
         <>
-            <GameBoardNavBar />
+            <NavBar />
 
             <div className="dicesContainer">
                 {diceData.map((dice, index) => (
