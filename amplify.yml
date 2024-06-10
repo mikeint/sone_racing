@@ -15,9 +15,3 @@ frontend:
     paths:
       - .next/cache/**/*
       - .npm/**/*
-      
-environment:
-  variables:
-    MONGO_URL: 'mongodb+srv://onlysansone:6GUrFxSvTmi6DbIy@soneracing.srcxtbt.mongodb.net/?retryWrites=true&w=majority&appName=soneracing'
-    NEXTAUTH_SECRET: 'yiAqRAaw7zSHy5bHgx/bbe519u56sWzkonEOJ9h+Yro='
-    NEXTAUTH_URL: 'https://master.dyur746dpf7gm.amplifyapp.com/'
