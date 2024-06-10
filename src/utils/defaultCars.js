@@ -13,7 +13,7 @@ const cars =
         level: 0,
         baseStats:{
             horsepower: 96,
-            weight: 2158,
+            weight: 2157,
             acceleration: 5,
             wheelspin: 5
         },
