@@ -311,4 +311,5 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
     );
 };
 
+export const dynamic = 'force-dynamic';
 export default EditBoard;
