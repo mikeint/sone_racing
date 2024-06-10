@@ -94,5 +94,5 @@ const Login = () => {
 		)
 	);
 };
-export const dynamic = 'force-dynamic';
+
 export default Login;

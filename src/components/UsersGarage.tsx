@@ -21,9 +21,9 @@ const Register = () => {
 
 	useEffect(() => {
 		if (sessionStatus === "authenticated") {
-			router.replace("/dashboard");
+			//router.replace("/dashboard");
 		} else {
-			router.replace("/login");
+			//router.replace("/login");
 		}
 	}, [sessionStatus, router]);
 

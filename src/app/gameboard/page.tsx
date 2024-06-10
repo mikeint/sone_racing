@@ -14,7 +14,7 @@ const GameBoard = () => {
 
     useEffect(() => {
 		if (sessionStatus !== "authenticated") {
-			router.replace("/login");
+			//router.replace("/login");
 		}
 	}, [sessionStatus, router]);
 
@@ -163,5 +163,5 @@ const GameBoard = () => {
         </>
     );
 };
-export const dynamic = 'force-dynamic';
+
 export default GameBoard;

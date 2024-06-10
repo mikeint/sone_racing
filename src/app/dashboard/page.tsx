@@ -8,7 +8,7 @@ const Dashboard = async () => {
     const session = await getServerSession();
     console.log("dashboard (Serverside) Sesh:", session)
     if (!session) {
-        redirect("/login");
+        //redirect("/login");
     }
 	
     return (
@@ -20,4 +20,3 @@ const Dashboard = async () => {
 };
 
 export default Dashboard;
-export const dynamic = 'force-dynamic';
