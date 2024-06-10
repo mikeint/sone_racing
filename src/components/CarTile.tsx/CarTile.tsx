@@ -3,6 +3,7 @@ import React from 'react';
 import { CarCard } from '../../types/CarCard'; 
 import './CarTile.css'
 import { useRouter } from "next/navigation"
+import Image from 'next/image';
 
 const CarTile = ({ car, purchased, onClick, selected }: { car: CarCard; purchased: boolean; onClick: () => void; selected?: boolean }) => {
 	const router = useRouter();
@@ -19,9 +20,11 @@ const CarTile = ({ car, purchased, onClick, selected }: { car: CarCard; purchase
         >
             <div className={`${selected ? 'selectedCar' : ''} carTileContainer`}>
                 <div className="carTileCarContainer">
-                    <img
-                        src={`./images/cars/${car.image}`}
+                    <Image
+                        src={`/images/cars/${car.image}`}
                         alt={`${car.make} ${car.model}`}
+                        width={500}
+                        height={500}
                         className="w-full lg:h-70 h-40 object-contain"
                     />
                 </div>
