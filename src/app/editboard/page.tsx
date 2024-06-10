@@ -189,7 +189,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                             <div className="editboard-carContainer">
                             <div className="editboard-nameContainer">
                                 <div className="editboard-logo">
-                                    <Image width={500} height={500} src={`/images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
+                                    <Image width={500} height={500} src={`/Images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
                                 </div>
                                 <div className="editboard-details">
                                     <div className="editboard-name">
@@ -200,7 +200,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="editboard-car"><Image width={500} height={500} src={`/images/cars/${carData?.image}`} alt={carData?.image} /></div>
+                            <div className="editboard-car"><Image width={500} height={500} src={`/Images/cars/${carData?.image}`} alt={carData?.image} /></div>
                             </div>
                         </div>
                     :
@@ -227,7 +227,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                         <div className="editboard-diceRow" key={index}> 
                                             <div className={`${diceFace.owned ? 'editboard-dice' : 'editboard-dice editboard-diceNotOwned'} ${selectedDiceFace+1 === diceFace.id && diceFace.owned ? 'active' : ''}`}
                                                 onClick={() => handleDiceFaceClick(diceFace.id, diceFace.owned, diceFace.cost)}
-                                                style={{ backgroundImage: `url('/images/dice/${diceFace.image}')` }}
+                                                style={{ backgroundImage: `url('/Images/dice/${diceFace.image}')` }}
                                             >
                                                 <div className="editboard-diceFaceValue"> 
                                                     <div>{diceFace.owned ? '' : '$'+diceFace.cost}</div>
@@ -236,7 +236,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                                 {array[index + 1] && (
                                             <div className={`${array[index + 1].owned ? 'editboard-dice' : 'editboard-diceNotOwned'} ${selectedDiceFace+1 === array[index + 1].id && array[index + 1].owned ? 'active' : ''}`} 
                                                 onClick={() => handleDiceFaceClick(array[index + 1].id, array[index + 1].owned, array[index + 1].cost)}
-                                                style={{ backgroundImage: `url('/images/dice/${array[index + 1].image}')` }}
+                                                style={{ backgroundImage: `url('/Images/dice/${array[index + 1].image}')` }}
                                             >
                                                 <div className="editboard-diceFaceValue"> 
                                                     <div>{array[index + 1].owned ? '' : '$'+array[index + 1].cost}</div>

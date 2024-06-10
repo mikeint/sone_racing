@@ -42,22 +42,22 @@
   background-position: center;
 }
 .dice1 {
-  background-image: url('/images/dice/1.png');
+  background-image: url('/Images/dice/1.png');
 }
 .dice2 {
-  background-image: url('/images/dice/2.png');
+  background-image: url('/Images/dice/2.png');
 }
 .dice3 {
-  background-image: url('/images/dice/3.png');
+  background-image: url('/Images/dice/3.png');
 }
 .dice4 {
-  background-image: url('/images/dice/4.png');
+  background-image: url('/Images/dice/4.png');
 }
 .dice5 {
-  background-image: url('/images/dice/5.png');
+  background-image: url('/Images/dice/5.png');
 }
 .dice6 {
-  background-image: url('/images/dice/6.png');
+  background-image: url('/Images/dice/6.png');
 }
 
 @keyframes spin {
@@ -210,7 +210,7 @@
 .treesImage {
   width: 100%;
   height: 80px;
-  background-image: url('/images/tree2.png');
+  background-image: url('/Images/tree2.png');
   background-repeat: repeat;
   background-size: contain;
 }

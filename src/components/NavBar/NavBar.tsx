@@ -15,11 +15,11 @@ const Navbar = () => {
         <div className="navBarContainer">
             {/* Garage image on the top left side */}
 			<Link href="/dashboard"> 
-                <Image width={500} height={500} src="/images/garage.png" alt="garage" className="navBarImage" />
+                <Image width={500} height={500} src="/Images/garage.png" alt="garage" className="navBarImage" />
 			</Link>
  
             <div className="cashContainer">
-                <Image width={500} height={500} src={"/images/coin.png"} alt={"coin"}/>
+                <Image width={500} height={500} src={"/Images/coin.png"} alt={"coin"}/>
                 {money}
             </div>
             

@@ -37,7 +37,7 @@ const RaceBoard = () => {
                         onClick={() => handleItemClick(index)}
                     >
                         <div className="racetype">{race[0]}</div>
-                        <div className="award"><Image width={500} height={500} src={"/images/coin.png"} alt={"coin"}/>{race[1]}</div>
+                        <div className="award"><Image width={500} height={500} src={"/Images/coin.png"} alt={"coin"}/>{race[1]}</div>
                     </div>
                 ))}
 

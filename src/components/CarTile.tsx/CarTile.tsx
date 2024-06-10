@@ -21,7 +21,7 @@ const CarTile = ({ car, purchased, onClick, selected }: { car: CarCard; purchase
             <div className={`${selected ? 'selectedCar' : ''} carTileContainer`}>
                 <div className="carTileCarContainer">
                     <Image
-                        src={`/images/cars/${car.image}`}
+                        src={`/Images/cars/${car.image}`}
                         alt={`${car.make} ${car.model}`}
                         width={500}
                         height={500}

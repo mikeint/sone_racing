@@ -105,12 +105,12 @@
     box-shadow: 0 0 5px 1px grey;
 }
 
-.editboard-dc1 {background: url('/images/parts/engine.png');}
-.editboard-dc2 {background: url('/images/parts/transmission.png');}
-.editboard-dc3 {background: url('/images/parts/wheels.png');}
-.editboard-dc4 {background: url('/images/parts/turbo.png');}
-.editboard-dc5 {background: url('/images/parts/frame.png');}
-.editboard-dc6 {background: url('/images/parts/intake.png');}
+.editboard-dc1 {background: url('/Images/parts/engine.png');}
+.editboard-dc2 {background: url('/Images/parts/transmission.png');}
+.editboard-dc3 {background: url('/Images/parts/wheels.png');}
+.editboard-dc4 {background: url('/Images/parts/turbo.png');}
+.editboard-dc5 {background: url('/Images/parts/frame.png');}
+.editboard-dc6 {background: url('/Images/parts/intake.png');}
 .editboard-dicechoose {
     display: flex;
     justify-content: center;
