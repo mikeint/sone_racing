@@ -9,8 +9,7 @@ import Image from 'next/image';
 const Navbar = () => {
     const [data, setData] = useState({ email: '', money: null }); 
     const { money } = useMoney();
-    
-
+     
     return (
         <div className="navBarContainer">
             {/* Garage image on the top left side */}

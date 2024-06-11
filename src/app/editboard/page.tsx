@@ -230,7 +230,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                                 style={{ backgroundImage: `url('/Images/dice/${diceFace.image}')` }}
                                             >
                                                 <div className="editboard-diceFaceValue"> 
-                                                    <div>{diceFace.owned ? '' : '$'+diceFace.cost}</div>
+                                                    <div className="editboard-diceFaceValueAbsolute">{diceFace.owned ? '' : '$'+diceFace.cost}</div>
                                                 </div>
                                             </div>
                                                 {array[index + 1] && (
@@ -239,7 +239,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                                                 style={{ backgroundImage: `url('/Images/dice/${array[index + 1].image}')` }}
                                             >
                                                 <div className="editboard-diceFaceValue"> 
-                                                    <div>{array[index + 1].owned ? '' : '$'+array[index + 1].cost}</div>
+                                                    <div className="editboard-diceFaceValueAbsolute">{array[index + 1].owned ? '' : '$'+array[index + 1].cost}</div>
                                                 </div>
                                             </div>
                                             )}
