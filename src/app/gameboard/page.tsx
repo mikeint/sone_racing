@@ -61,6 +61,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                 if (!res.ok) throw new Error("Failed to fetch car data");
                 const returnedCar = await res.json();
                 setSelectedCar(returnedCar.car)
+                setCurrentRollStats(returnedCar.car.baseStats)
 
                 const parts = ['engine', 'turbo', 'intake', 'body', 'tires', 'transmission'];
                 const faceIds = parts.map(part => 
@@ -209,7 +210,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
         await Swal.fire({
             position: "top-end", 
             title: `${raceValue*winnings} collected`,
-            imageUrl: "images/coin.png",
+            imageUrl: "/Images/coin.png",
             imageWidth: 50,
             imageAlt: "buyimage",
             showConfirmButton: false,
