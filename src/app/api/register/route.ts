@@ -20,7 +20,7 @@ export const POST = async (request: any) => {
 	const newUser = new User({
 		email,
 		password: hashedPassword,
-		money: 25000
+		money:50000
 	});
 
 	try {

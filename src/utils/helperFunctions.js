@@ -1,6 +1,6 @@
 import confetti from "canvas-confetti";
 export function callConffeti() {
-    var end = Date.now() + (15 * 20);
+    var end = Date.now() + 150;
     var colors = ['#fff', '#000'];
     (function frame() {
         confetti({

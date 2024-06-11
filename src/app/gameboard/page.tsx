@@ -141,42 +141,42 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             // console.log(selectedCar?.parts.transmission[diceRolls[5]-1])
 
             const engineDiceAttrs:any = selectedCar?.parts.engine[diceRolls[0]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(engineDiceAttrs)
+            console.log(engineDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + engineDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + engineDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + engineDiceAttrs[0].weight
             accumulatedWheelspin = accumulatedWheelspin + engineDiceAttrs[0].wheelspin
 
             const turboDiceAttrs:any = selectedCar?.parts.turbo[diceRolls[1]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(turboDiceAttrs)
+            console.log(turboDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + turboDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + turboDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + turboDiceAttrs[0].weight
             accumulatedWheelspin = accumulatedWheelspin + turboDiceAttrs[0].wheelspin
 
             const intakeDiceAttrs:any = selectedCar?.parts.intake[diceRolls[2]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(intakeDiceAttrs)
+            console.log(intakeDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + intakeDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + intakeDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + intakeDiceAttrs[0].weight
             accumulatedWheelspin = accumulatedWheelspin + intakeDiceAttrs[0].wheelspin
 
             const bodyDiceAttrs:any = selectedCar?.parts.body[diceRolls[3]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(bodyDiceAttrs)
+            console.log(bodyDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + bodyDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + bodyDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + bodyDiceAttrs[0].weight
             accumulatedWheelspin = accumulatedWheelspin + bodyDiceAttrs[0].wheelspin
 
             const tiresDiceAttrs:any = selectedCar?.parts.tires[diceRolls[4]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(tiresDiceAttrs)
+            console.log(tiresDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + tiresDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + tiresDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + tiresDiceAttrs[0].weight
             accumulatedWheelspin = accumulatedWheelspin + tiresDiceAttrs[0].wheelspin
 
             const transmissionDiceAttrs:any = selectedCar?.parts.transmission[diceRolls[5]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            //console.log(transmissionDiceAttrs)
+            console.log(transmissionDiceAttrs)
             accumulatedHorsepower = accumulatedHorsepower + transmissionDiceAttrs[0].horsepower
             accumulatedAcceleration = accumulatedAcceleration + transmissionDiceAttrs[0].acceleration
             accumulatedWeight = accumulatedWeight + transmissionDiceAttrs[0].weight
@@ -223,7 +223,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     };
 
     const setExperience = () => {
-        const exp = ((raceValue) * 15);
+        const exp = ((raceValue) * 5);
         const carId = selectedCar?.carId;
 		const setExperience = async () => {
 			try {
@@ -252,6 +252,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
         const normWt = (4000 - (stats.weight*1)) / (4000 - 1000);
         const normSs = (stats.acceleration - 1) / (10 - 1);
         //const normWs = (stats.wheelspin - 1) / (10 - 1); //wheelspin... /
+        console.log("WHEELSPIN: ", stats.wheelspin)
     
         const weightedSum = (0.4 * normHp) + (0.3 * normWt) + (0.2 * normSs) //+ (0.1 * normWs);
         const speedPixelsPerFrame = mPower * weightedSum;

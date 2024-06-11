@@ -21,7 +21,7 @@ export const POST = async (request: any) => {
 		// set THIS carId userCars selected to true
 		const updatedUserCarExp = await UserCar.findOneAndUpdate(
 			{ userEmail: userEmail, 'car.carId': carId },
-			{ $inc: { 'car.$.experience': exp } },
+			{ $inc: { 'car.experience': exp } },
 			{ new: true }
 		);
 		 

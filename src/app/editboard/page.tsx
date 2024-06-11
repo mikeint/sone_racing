@@ -9,6 +9,7 @@ import { CarEditType } from '../../types/CarEditType'
 import Loader from '../../components/Loader/Loader'
 import Image from 'next/image';
 import CarStats from "@/components/CarStats/CarStats";
+import ExperienceBar from "@/components/ExperienceBar/ExperienceBar";
 
 const EditBoard = ({ searchParams }: { searchParams: any }) => {
     const carId = JSON.stringify(searchParams.carId).replace(/"/g, '');
@@ -42,7 +43,6 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
     }
 
     const handlePartChooser = (partName: string) => {
-        console.log("partName: ", partName)
         setSelectedDiceFace(0);
         setselectedPartFace(partName);
     };
@@ -188,16 +188,19 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                         <div className="editboard-fullCarContainer">
                             <div className={`editboard-tier ${carData?.tier === 'T1' ? 'bg-blue-500': ''} ${carData?.tier === 'T2' ? 'bg-purple-500': ''} ${carData?.tier === 'T3' ? 'bg-orange-500': ''}`}>{carData?.tier}</div>
                             <div className="editboard-carContainer">
-                            <div className="editboard-nameContainer">
-                                <div className="editboard-logo">
-                                    <Image width={500} height={500} src={`/Images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
-                                </div>
-                                <div className="editboard-details">
-                                    <div className="editboard-name">
-                                        {carData?.make + ' ' + carData?.model}
+                            <div className="editboard-topNameContainer">
+                                <ExperienceBar experience={carData?.experience} />
+                                <div className="editboard-nameContainer">
+                                    <div className="editboard-logo">
+                                        <Image width={500} height={500} src={`/Images/logos/${carData?.make}.png`} alt={`${carData?.make} logo`} />
                                     </div>
-                                    <div className="editboard-year">
-                                        {carData?.year}
+                                    <div className="editboard-details">
+                                        <div className="editboard-name">
+                                            {carData?.make + ' ' + carData?.model}
+                                        </div>
+                                        <div className="editboard-year">
+                                            {carData?.year}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

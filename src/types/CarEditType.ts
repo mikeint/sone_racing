@@ -5,6 +5,7 @@ export interface CarEditType {
     image: string
     year: number
     baseStats: BaseStats
+    experience: number
     parts: Parts
 }
 
