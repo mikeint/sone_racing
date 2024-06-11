@@ -8,6 +8,7 @@ export interface CarCard {
     value: number;
     selected: boolean;
     level: number;
+    experience: number;
     baseStats: BaseStats;
     parts:Parts
 }
