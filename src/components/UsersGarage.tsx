@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react"
 import Peddle from '../components/Peddle/Peddle'
 import defaultCars from '../utils/defaultCars'
 import { useMoney } from '../contexts/MoneyContext';
-import CarTile from "./CarTile.tsx/CarTile"
+import CarTile from "./CarTile/CarTile"
 import { CarCard } from '../types/CarCard'; 
 import Loader from '../components/Loader/Loader';
 
@@ -32,12 +32,12 @@ const Register = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log("USERS CARS: ", userCars)
+		//console.log("USERS CARS: ", userCars)
 		if (userCars?.length > 0) {
 			const ownedCarIds = userCars.map(car => car.carId);
-			console.log(ownedCarIds)
+			//console.log(ownedCarIds)
 			const filteredDefaultCars = defaultCars.filter(car => !ownedCarIds?.includes(car.carId));
-			console.log("unowned cars: ", filteredDefaultCars)
+			//console.log("unowned cars: ", filteredDefaultCars)
 			setUnownedCars(filteredDefaultCars);
 		}
 	}, [userCars]);
@@ -150,7 +150,7 @@ const Register = () => {
 
 	return (
 		<>
-			<div className="lg:text-2xl text-sm lg:m-5 ml-1 font-bold text-gray-900 ">GARAGE</div>
+			<div className="lg:text-2xl text-sm lg:m-5 ml-1 font-bold text-gray-900">GARAGE</div>
 
 			{/* DISPLAY OWNED CARS */ }
  			<div className={"flex flex-wrap"}>

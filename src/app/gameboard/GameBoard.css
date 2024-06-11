@@ -1,6 +1,12 @@
+.gameNavContainer {
+  display: flex;
+}
 .dicesContainer {
     display: flex;
-    width: 100%;
+    width: 80%;
+}
+.currentCarStats {
+ width: 20%;
 }
 .dice-wrapper {
     position: relative;
@@ -13,8 +19,19 @@
     border-right: 1px solid #eaeaea;
     border-radius: 20px;
     margin-right: 1px;
-} 
-
+}
+.diceNamesContainer {
+  display: flex;
+  width: 80%;
+}
+.diceName {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  color: #ffffff69;
+}
 .dice-container {
   display: block;
   position: relative;
@@ -121,16 +138,13 @@
 /* MOBILE DICE */
 @media only screen and (max-width: 1280px) {
   .dice-container {
-    width: 74px;
-    height: 74px;
+    width: 64px;
+    height: 64px;
   }
   .dice-wrapper {
     width: 16.6666666667%;
-    height: 115px;
+    height: 100px;
     border-radius: 10px;
-  }
-  .dice { 
-    font-size: 42px;
   }
 
   @keyframes spin {
@@ -212,7 +226,7 @@
   height: 80px;
   background-image: url('/Images/tree2.png');
   background-repeat: repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .distanceTravelled {

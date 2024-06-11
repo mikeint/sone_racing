@@ -210,45 +210,7 @@
     width: 46px;
     height: 0px;
 }
-
 /* end DICE */
- 
-/* STATS */
-.editboard-barGraph {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    height: 96%;
-    margin-bottom: 4%;
-    background-color: #fff;
-    color: #000;
-    border-bottom: 3px solid #878787;
-    box-shadow: 1px 7px 8px -5px #6b6b6b;
-}
-
-.editboard-bar {
-    position: relative;
-    height: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px; 
-    transform: scaleX(-1); /* Flips the bar horizontally */
-}
-
-.editboard-barLabel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-    transform: scaleX(-1); /* Flips the text back to normal */
-    color: #000;
-    padding: 5px;
-    white-space: nowrap;
-}
-/* end STATS */
 
 /* ATTR */
 .editboard-diceAttrContainer {
@@ -354,9 +316,6 @@
         flex-direction: row;
         max-height: 100%;
         height: calc(100vh - 40px) !important
-    }
-    .editboard-barGraph {
-        margin-right: 10px; 
     }
     .item1 {
         flex-basis: 100%;

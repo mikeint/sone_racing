@@ -8,6 +8,7 @@ import { useMoney } from '../../contexts/MoneyContext';
 import { CarEditType } from '../../types/CarEditType'
 import Loader from '../../components/Loader/Loader'
 import Image from 'next/image';
+import CarStats from "@/components/CarStats/CarStats";
 
 const EditBoard = ({ searchParams }: { searchParams: any }) => {
     const carId = JSON.stringify(searchParams.carId).replace(/"/g, '');
@@ -253,20 +254,7 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                 </div>
 
                 <div className="item item4">
-                    <div className="editboard-barGraph">
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.horsepower ?? 0, 0, 1500)}%`, backgroundColor: '#FF5733'}}>
-                            <span className="editboard-barLabel">horsepower: {carData?.baseStats?.horsepower}</span>
-                        </div>
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.weight ?? 0, 1000, 7000)}%`, backgroundColor: '#ffd133'}}>
-                            <span className="editboard-barLabel">weight: {carData?.baseStats?.weight}lbs</span>
-                        </div>
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.acceleration ?? 0, 1, 100)}%`, backgroundColor: '#33C3FF'}}>
-                            <span className="editboard-barLabel">acceleration: {carData?.baseStats?.acceleration}</span>
-                        </div>
-                        <div className="editboard-bar" style={{width: `${calculateBarWidths(carData?.baseStats?.wheelspin ?? 0, 0, 100)}%`, backgroundColor: '#FF33C7'}}>
-                            <span className="editboard-barLabel">wheelspin: {carData?.baseStats?.wheelspin}%</span>
-                        </div>
-                    </div>
+                    <CarStats stats={carData?.baseStats} />
                 </div>
 
 

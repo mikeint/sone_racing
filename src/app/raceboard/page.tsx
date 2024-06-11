@@ -8,17 +8,19 @@ import Image from 'next/image';
 
 
 const raceTypes = [
-    ['Practice', 50],
-    ['1/4 mile', 200],
-    ['1/2 mile', 100]
+    ['Practice', '50-250'],
+    ['1/2 mile', '100-500'],
+    ['1/4 mile', '200-1000']
 ];
 
 const RaceBoard = () => {
 	const router = useRouter();
-    const [activeRace, setActiveRace] = useState(0);
+    const [activeRace, setActiveRace] = useState<number>(Number(localStorage.getItem('selectedRace')) || 0);
 
     const handleItemClick = (index:number) => {
         setActiveRace(index);
+        localStorage.setItem("selectedRace", JSON.stringify(index));
+
     };
 
     const redirectToGameBoard = (activeRace:number) => {
@@ -29,7 +31,7 @@ const RaceBoard = () => {
         <>
         <NavBar />
             <>
-                <div className="raceTitle">Races</div>
+                <div className="lg:text-2xl text-sm lg:m-5 ml-1 font-bold text-gray-900 ">Races</div>
                 {raceTypes.map((race, index) => (
                     <div
                         key={index}
