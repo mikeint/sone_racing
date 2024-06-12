@@ -193,7 +193,13 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                     "wheelspin": selectedCar.baseStats.wheelspin + accumulatedWheelspin,
                 }
                 setCurrentRollStats(newCarStats)
-            
+                
+                /* Animate road */
+                const road:any = document.getElementById('road');
+                road.classList.add('animate');
+                setTimeout(() => {road.classList.remove('animate');}, 550);
+                /* end Animate road */
+
                 console.log(newCarStats)
                 console.log("DISTANCE::::: ", convertToPixels(newCarStats)) 
                 setPosition(prevPosition => prevPosition + (convertToPixels(newCarStats)));
@@ -305,7 +311,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             </div>
 
             <div className="treesImage"></div> 
-            <div className="roadImage"></div> 
+            <div id="road" className="roadImage"></div> 
             <div className="distanceTravelled">{Math.round(car1Position)}m</div>
             <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
                 {selectedCar ? <Image width={500} height={500} src={`/Images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
