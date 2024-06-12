@@ -10,7 +10,7 @@ import './GameBoard.css'
 import Loader from "@/components/Loader/Loader"
 import { CarCard } from "@/types/CarCard"
 import Image from 'next/image';
-import { MoneyProvider, useMoney } from '../../contexts/MoneyContext';
+import { useMoney } from '../../contexts/MoneyContext';
 import CarStats from "@/components/CarStats/CarStats";
 import { callConffeti } from '../../utils/helperFunctions'
 
@@ -39,7 +39,8 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     ]) //DEFAULT 
     const [selectedCar, setSelectedCar] = useState<CarCard>()
     const [diceRolls, setDiceRolls] = useState<any>()
-    const [car1Position, setPosition] = useState(0); // Initial position 
+    const [car1Position, setCar1Position] = useState(0); // Initial position 
+    const [car2Position, setCar2Position] = useState(0); // Initial position 
     const [raceValue, setRaceValue] = useState<number>(0); // race type 0,1,2...
     const [gear, setGear] = useState<number>(0); 
     const [currentRollStats, setCurrentRollStats] = useState({});
@@ -48,8 +49,8 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
  
     useEffect(() => {
         if (raceType===0) { setRaceValue(50); } 
-        if (raceType===1) { setRaceValue(200); } 
-        if (raceType===2) { setRaceValue(100); } 
+        if (raceType===1) { setRaceValue(100); } 
+        if (raceType===2) { setRaceValue(200); } 
     })
 
     useEffect(() => {
@@ -141,49 +142,19 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             // console.log(selectedCar?.parts.body[diceRolls[3]-1])
             // console.log(selectedCar?.parts.tires[diceRolls[4]-1])
             // console.log(selectedCar?.parts.transmission[diceRolls[5]-1])
-
-            const engineDiceAttrs:any = selectedCar?.parts.engine[diceRolls[0]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(engineDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + engineDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + engineDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + engineDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + engineDiceAttrs[0].wheelspin
-
-            const turboDiceAttrs:any = selectedCar?.parts.turbo[diceRolls[1]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(turboDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + turboDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + turboDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + turboDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + turboDiceAttrs[0].wheelspin
-
-            const intakeDiceAttrs:any = selectedCar?.parts.intake[diceRolls[2]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(intakeDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + intakeDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + intakeDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + intakeDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + intakeDiceAttrs[0].wheelspin
-
-            const bodyDiceAttrs:any = selectedCar?.parts.body[diceRolls[3]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(bodyDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + bodyDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + bodyDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + bodyDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + bodyDiceAttrs[0].wheelspin
-
-            const tiresDiceAttrs:any = selectedCar?.parts.tires[diceRolls[4]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(tiresDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + tiresDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + tiresDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + tiresDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + tiresDiceAttrs[0].wheelspin
-
-            const transmissionDiceAttrs:any = selectedCar?.parts.transmission[diceRolls[5]-1].diceAttributes?.filter((diceAttr=> diceAttr.selected))
-            console.log(transmissionDiceAttrs)
-            accumulatedHorsepower = accumulatedHorsepower + transmissionDiceAttrs[0].horsepower
-            accumulatedAcceleration = accumulatedAcceleration + transmissionDiceAttrs[0].acceleration
-            accumulatedWeight = accumulatedWeight + transmissionDiceAttrs[0].weight
-            accumulatedWheelspin = accumulatedWheelspin + transmissionDiceAttrs[0].wheelspin
-
+ 
+ 
+            diceNames.map(name => name.toLowerCase()).forEach((part:any, index:any) => {
+                const diceAttrs = selectedCar?.parts[part][diceRolls[index] - 1].diceAttributes?.filter((diceAttr => diceAttr.selected));
+                if (diceAttrs?.length) {
+                    console.log(diceAttrs);
+                    accumulatedHorsepower += diceAttrs[0].horsepower;
+                    accumulatedAcceleration += diceAttrs[0].acceleration;
+                    accumulatedWeight += diceAttrs[0].weight;
+                    accumulatedWheelspin += diceAttrs[0].wheelspin;
+                }
+            });
+ 
 
             if (selectedCar) {
                 const newCarStats = {
@@ -197,12 +168,14 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                 /* Animate road */
                 const road:any = document.getElementById('road');
                 road.classList.add('animate');
-                setTimeout(() => {road.classList.remove('animate');}, 550);
+                setTimeout(() => {road.classList.remove('animate');}, 400);
                 /* end Animate road */
 
-                console.log(newCarStats)
-                console.log("DISTANCE::::: ", convertToPixels(newCarStats)) 
-                setPosition(prevPosition => prevPosition + (convertToPixels(newCarStats)));
+                console.log("new stats to show: ", newCarStats)
+                const pixelValue = convertToPixels(newCarStats);
+                //console.log("DISTANCE::::: ", pixelValue) 
+                setCar1Position(prevPosition => prevPosition + pixelValue); 
+                setCar2Position(prevPosition => prevPosition + pixelValue- (Math.floor(Math.random()*20)) ); 
             }
 
         } else {
@@ -232,7 +205,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     };
 
     const saveMoney = (value:any) => {
-		const setExperience = async () => {
+		const saveMoney = async () => {
 			try {
 				const response = await fetch('/api/setMoney', {
 					method: 'POST',
@@ -250,7 +223,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
 				console.error("Error setting ex:", error);
 			}
 		}
-        setExperience()
+        saveMoney()
     }
 
     const setExperience = () => {
@@ -282,13 +255,26 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
         const normHp = (stats.horsepower - 50) / (500 - 50);
         const normWt = (4000 - (stats.weight*1)) / (4000 - 1000);
         const normSs = (stats.acceleration - 1) / (10 - 1);
-        //const normWs = (stats.wheelspin - 1) / (10 - 1); //wheelspin... /
-        console.log("WHEELSPIN: ", stats.wheelspin)
-    
+        //const normWs = (stats.wheelspin - 1) / (10 - 1); 
+        
         const weightedSum = (0.4 * normHp) + (0.3 * normWt) + (0.2 * normSs) //+ (0.1 * normWs);
         const speedPixelsPerFrame = mPower * weightedSum;
-    
-        return speedPixelsPerFrame * 100
+        
+        const randomNumber = Math.floor(Math.random() * 100) + 1; 
+        if (randomNumber <= stats.wheelspin) {
+            Swal.fire({
+                position: "top", 
+                title: 'Wheelspin, speed cut in half',
+                showConfirmButton: false,
+                timer: 800
+            });
+            console.log((speedPixelsPerFrame * 100) / 2)
+            return (speedPixelsPerFrame * 100) / 2
+        }
+        else {
+            console.log(speedPixelsPerFrame * 100)
+            return speedPixelsPerFrame * 100
+        } 
     }
     
     return (
@@ -310,11 +296,20 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                 </div>
             </div>
 
-            <div className="treesImage"></div> 
+            <div className="water-container">
+                <div className="treesImage"></div> 
+                <div className="boat"></div>  
+            </div>
+            
             <div id="road" className="roadImage"></div> 
             <div className="distanceTravelled">{Math.round(car1Position)}m</div>
             <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
                 {selectedCar ? <Image width={500} height={500} src={`/Images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
+            </div>
+
+            <div className="enemyDistanceTravelled">{Math.round(car2Position)}m</div>
+            <div className="enemyCarImage" style={{transform: `translateX(${car2Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
+                {selectedCar ? <Image width={500} height={500} src={`/Images/cars/HondaCivic.png`} alt={"hondaCivic"} /> : <Loader />}
             </div>
 
             {selectedCar && <Peddle diceThrow={() => diceThrow()} disabledClass={disablePeddle} />}

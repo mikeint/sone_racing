@@ -2,10 +2,9 @@
 .loadContainer {
     position: absolute; 
     left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
-    margin-top: 65px; 
+    -webkit-transform: translate(-50%,0%);
+        -ms-transform: translate(-50%,0%);
+            transform: translate(-50%,0%);
 }
 @media only screen and (max-width: 1050px) { .loadContainer { margin-top: 60px;  }} /* for stupid mobile center div */
 @-webkit-keyframes loader {
