@@ -18,7 +18,7 @@ export const POST = async (request: any) => {
 
 		const updatedUserMoney = await User.findOneAndUpdate(
 			{ email: userEmail },
-			{ $set: { money: value } },
+			{ $inc: { money: value } },
 			{ new: true } 
 		);
 		 

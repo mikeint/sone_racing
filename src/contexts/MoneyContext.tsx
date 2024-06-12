@@ -1,4 +1,5 @@
 'use client'
+import { useSession } from 'next-auth/react';
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 interface MoneyContextType {
@@ -10,7 +11,8 @@ const MoneyContext = createContext<MoneyContextType | undefined>(undefined);
 
 export const MoneyProvider = ({ children }: { children: ReactNode }) => {
     const [money, setMoney] = useState<number>(0);
-
+    const { data: session, status } = useSession();
+ 
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -27,8 +29,9 @@ export const MoneyProvider = ({ children }: { children: ReactNode }) => {
             }
         };
 
-        fetchData();
-    }, []);
+        if (status === 'authenticated') fetchData();
+        else return
+    }, [status]);
 
     return (
         <MoneyContext.Provider value={{ money, setMoney }}>

@@ -217,11 +217,11 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             showConfirmButton: false,
             timer: 1000
         });
-        const value = money + raceValue*winnings;
+
         callConffeti();
         setExperience();
-        setMoney(value);
-        saveMoney(value);
+        setMoney(money + raceValue*winnings);
+        saveMoney(raceValue*winnings);
         router.replace("/dashboard");
     };
 
