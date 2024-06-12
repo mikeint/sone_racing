@@ -10,6 +10,7 @@ import { useMoney } from '../contexts/MoneyContext';
 import CarTile from "./CarTile/CarTile"
 import { CarCard } from '../types/CarCard'; 
 import Loader from '../components/Loader/Loader';
+import Navbar from "./NavBar/NavBar";
 
 const Register = () => {
 	const [userCars, setUserCars] = useState<CarCard[]>([]);
@@ -109,7 +110,7 @@ const Register = () => {
 			swalWithBootstrapButtons.fire({
 				title: "Buy this "+make+" "+model+"?",
 				text: "cost: $"+value,
-				imageUrl: "images/cars/"+make+model+".png",
+				imageUrl: "/Images/cars/"+make+model+".png",
 				imageWidth: 300,
 				imageAlt: "buyimage",
 				confirmButtonText: "BUY",
@@ -150,6 +151,7 @@ const Register = () => {
 
 	return (
 		<>
+            <Navbar />
 			<div className="lg:text-2xl text-sm lg:m-5 ml-1 font-bold text-gray-900">GARAGE</div>
 
 			{/* DISPLAY OWNED CARS */ }

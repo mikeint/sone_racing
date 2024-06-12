@@ -1,22 +1,39 @@
 import confetti from "canvas-confetti";
 export function callConffeti() {
-    var end = Date.now() + 150;
-    var colors = ['#fff', '#000'];
-    (function frame() {
-        confetti({
-            particleCount: 10,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: colors
-        });
-        confetti({
-            particleCount: 10,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: colors
-        });
-        if (Date.now() < end) requestAnimationFrame(frame);
-    }());
+    var scalar = 2;
+    var unicorn = confetti.shapeFromText({ text: '🚘', scalar });
+    
+    var defaults = {
+      spread: 360,
+      ticks: 50,
+      gravity: 0,
+      decay: 0.96,
+      startVelocity: 20,
+      shapes: [unicorn],
+      scalar
+    };
+    
+    function shoot() {
+      confetti({
+        ...defaults,
+        particleCount: 30
+      });
+    
+      confetti({
+        ...defaults,
+        particleCount: 5,
+        flat: true
+      });
+    
+      confetti({
+        ...defaults,
+        particleCount: 15,
+        scalar: scalar / 2,
+        shapes: ['circle']
+      });
+    }
+    
+    setTimeout(shoot, 0);
+    setTimeout(shoot, 100);
+    setTimeout(shoot, 200);
 }

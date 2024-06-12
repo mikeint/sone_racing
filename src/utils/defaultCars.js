@@ -206,9 +206,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 11, weight: 20, acceleration: 0, wheelspin: 0, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 21, weight: 200, acceleration: 1, wheelspin: 0, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 31, weight: 20, acceleration: 0, wheelspin: 1, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 11, weight: 20, acceleration: 0, wheelspin: 0, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 21, weight: 200, acceleration: 1, wheelspin: 0, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 31, weight: 20, acceleration: 0, wheelspin: 1, owned: false, selected:false },
                     ]
                 },
                 {
@@ -219,9 +219,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 21, weight: 20, acceleration: 0, wheelspin: 0, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 31, weight: 200, acceleration: 1, wheelspin: 0, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 41, weight: 20, acceleration: 0, wheelspin: 1, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 21, weight: 20, acceleration: 0, wheelspin: 0, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 31, weight: 200, acceleration: 1, wheelspin: 0, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 41, weight: 20, acceleration: 0, wheelspin: 1, owned: false, selected:false },
                     ]
                 },
                 {
@@ -232,9 +232,9 @@ const cars =
                     owned: false,
                     cost: 2000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 31, weight: 20, acceleration: 1, wheelspin: 1, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 41, weight: 200, acceleration: 1, wheelspin: 1, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 51, weight: 20, acceleration: 1, wheelspin: 2, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 31, weight: 20, acceleration: 1, wheelspin: 1, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 41, weight: 200, acceleration: 1, wheelspin: 1, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 51, weight: 20, acceleration: 1, wheelspin: 2, owned: false, selected:false },
                     ]
                 },
                 {
@@ -245,9 +245,9 @@ const cars =
                     owned: false,
                     cost: 3000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 41, weight: 20, acceleration: 1, wheelspin: 1, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 51, weight: 300, acceleration: 1, wheelspin: 1, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 61, weight: 20, acceleration: 1, wheelspin: 2, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 41, weight: 20, acceleration: 1, wheelspin: 1, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 51, weight: 300, acceleration: 1, wheelspin: 1, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 61, weight: 20, acceleration: 1, wheelspin: 2, owned: false, selected:false },
                     ]
                 },
                 {
@@ -258,9 +258,9 @@ const cars =
                     owned: false,
                     cost: 4000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 51, weight: 20, acceleration: 1, wheelspin: 2, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 61, weight: 300, acceleration: 1, wheelspin: 2, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 71, weight: 20, acceleration: 1, wheelspin: 4, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 51, weight: 20, acceleration: 1, wheelspin: 2, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 61, weight: 300, acceleration: 1, wheelspin: 2, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 71, weight: 20, acceleration: 1, wheelspin: 4, owned: false, selected:false },
                     ]
                 },
                 {
@@ -271,9 +271,9 @@ const cars =
                     owned: false,
                     cost: 5000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 0, horsepower: 61, weight: 20, acceleration: 2, wheelspin: 2, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 3000, horsepower: 71, weight: 400, acceleration: 3, wheelspin: 2, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 81, weight: 20, acceleration: 2, wheelspin: 4, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 0, horsepower: 61, weight: 20, acceleration: 2, wheelspin: 2, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 3000, horsepower: 71, weight: 400, acceleration: 3, wheelspin: 2, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 81, weight: 20, acceleration: 2, wheelspin: 4, owned: false, selected:false },
                     ]
                 },
             ],
@@ -487,9 +487,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -500,9 +500,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
             ],
@@ -781,9 +781,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -794,9 +794,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -807,9 +807,9 @@ const cars =
                     owned: false,
                     cost: 2000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -820,9 +820,9 @@ const cars =
                     owned: false,
                     cost: 3000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -833,9 +833,9 @@ const cars =
                     owned: false,
                     cost: 4000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -846,9 +846,9 @@ const cars =
                     owned: false,
                     cost: 5000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
             ],
@@ -1101,9 +1101,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1114,9 +1114,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1127,9 +1127,9 @@ const cars =
                     owned: false,
                     cost: 2000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1140,9 +1140,9 @@ const cars =
                     owned: false,
                     cost: 3000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1153,9 +1153,9 @@ const cars =
                     owned: false,
                     cost: 4000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1166,9 +1166,9 @@ const cars =
                     owned: false,
                     cost: 5000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
             ],
@@ -1447,9 +1447,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1460,9 +1460,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1473,9 +1473,9 @@ const cars =
                     owned: false,
                     cost: 2000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1486,9 +1486,9 @@ const cars =
                     owned: false,
                     cost: 3000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1499,9 +1499,9 @@ const cars =
                     owned: false,
                     cost: 4000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1512,9 +1512,9 @@ const cars =
                     owned: false,
                     cost: 5000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
             ],
@@ -1767,9 +1767,9 @@ const cars =
                     owned: true,
                     cost: 0,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 22, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 35, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 80, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1780,9 +1780,9 @@ const cars =
                     owned: false,
                     cost: 1000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1793,9 +1793,9 @@ const cars =
                     owned: false,
                     cost: 2000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1806,9 +1806,9 @@ const cars =
                     owned: false,
                     cost: 3000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 53, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 65, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 110, weight: 0, acceleration: 0, wheelspin: 10, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1819,9 +1819,9 @@ const cars =
                     owned: false,
                     cost: 4000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
                 {
@@ -1832,9 +1832,9 @@ const cars =
                     owned: false,
                     cost: 5000,
                     diceAttributes: [
-                        { id: 1, name: "Tranny Style 1", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
-                        { id: 2, name: "Tranny Style 2", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
-                        { id: 3, name: "Tranny Style 3", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
+                        { id: 1, name: "Automagic", cost: 1000, horsepower: 83, weight: 0, acceleration: 0, wheelspin: 3, owned: true, selected:true },
+                        { id: 2, name: "Tiptronic", cost: 2000, horsepower: 95, weight: 0, acceleration: 0, wheelspin: 4, owned: false, selected:false },
+                        { id: 3, name: "Manual", cost: 3000, horsepower: 150, weight: 0, acceleration: 0, wheelspin: 12, owned: false, selected:false },
                     ]
                 },
             ],

@@ -1,9 +1,7 @@
-export default function Home() {
+import HomePage from '@/components/HomePage/HomePage';
+
+export default function page() {
   return (
-    <>
-      <main className="flex pt-4">
-        <h1>Home Page im here</h1>
-      </main>
-    </>
+    <HomePage />
   );
 }

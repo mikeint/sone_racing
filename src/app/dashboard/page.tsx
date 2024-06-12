@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "@/components/NavBar/NavBar";
 import UsersGarage from "@/components/UsersGarage";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -12,10 +11,7 @@ const Dashboard = async () => {
     }
 	
     return (
-        <>
-            <Navbar />
-            <UsersGarage />
-        </>
+        <UsersGarage />
     );
 };
 

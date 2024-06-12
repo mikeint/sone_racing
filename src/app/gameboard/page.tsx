@@ -44,6 +44,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     const [gear, setGear] = useState<number>(0); 
     const [currentRollStats, setCurrentRollStats] = useState({});
     const [disablePeddle, setDisablePeddle] = useState('');
+    const diceNames = ["Engine", "Turbo", "Intake", "Body", "Tires", "Transmission"]
  
     useEffect(() => {
         if (raceType===0) { setRaceValue(50); } 
@@ -216,12 +217,35 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             showConfirmButton: false,
             timer: 1000
         });
-        
+        const value = money + raceValue*winnings;
         callConffeti();
         setExperience();
-        setMoney(money + raceValue*winnings);
+        setMoney(value);
+        saveMoney(value);
         router.replace("/dashboard");
     };
+
+    const saveMoney = (value:any) => {
+		const setExperience = async () => {
+			try {
+				const response = await fetch('/api/setMoney', {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json',},
+					body: JSON.stringify({ value }),
+				});
+				const responseData = await response.json(); 
+				
+				if (response.status === 400) {
+					console.log("400: ", responseData)
+				} else if (response.status === 200) {
+					console.log(responseData.success)
+				}
+			} catch (error) {
+				console.error("Error setting ex:", error);
+			}
+		}
+        setExperience()
+    }
 
     const setExperience = () => {
         const exp = ((raceValue) * 5);
@@ -236,9 +260,9 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
 				const responseData = await response.json(); 
 				
 				if (response.status === 400) {
-					console.log("400: ", response.status)
+					return;
 				} else if (response.status === 200) {
-					console.log("200: ", response.status)
+					return;
 				}
 			} catch (error) {
 				console.error("Error setting ex:", error);
@@ -260,13 +284,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     
         return speedPixelsPerFrame * 100
     }
-
-    const calculateBarWidths = (value:number, min:number, max:number) => {
-        if (value === undefined || value === null) return 0;
-        return Math.max(0, Math.min((value - min) / (max - min) * 100, 100));
-    }
-
-    const diceNames = ["Engine", "Turbo", "Intake", "Body", "Tires", "Transmission"]
+    
     return (
         <>
             <NavBar />
@@ -287,7 +305,8 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             </div>
 
             <div className="treesImage"></div> 
-            <div className="distanceTravelled">{Math.round(car1Position)}</div>
+            <div className="roadImage"></div> 
+            <div className="distanceTravelled">{Math.round(car1Position)}m</div>
             <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
                 {selectedCar ? <Image width={500} height={500} src={`/Images/cars/${selectedCar?.image}`} alt={selectedCar?.image} /> : <Loader />}
             </div>

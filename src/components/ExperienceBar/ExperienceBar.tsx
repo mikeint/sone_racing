@@ -19,7 +19,7 @@ const ExperienceBar = ({ experience }: any) => {
                 Level {level}
             </div>
             <div className="progress-bar">
-                <div className="progress" style={{ width: `${progressPercentage}%` }}>
+                <div className="progress" style={{ width: `${progressPercentage*level}%` }}>
                     <div className="progress-text">{experience}<span>XP</span></div>
                 </div>
             </div>
