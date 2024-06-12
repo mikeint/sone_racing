@@ -143,7 +143,6 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             // console.log(selectedCar?.parts.tires[diceRolls[4]-1])
             // console.log(selectedCar?.parts.transmission[diceRolls[5]-1])
  
- 
             diceNames.map(name => name.toLowerCase()).forEach((part:any, index:any) => {
                 const diceAttrs = selectedCar?.parts[part][diceRolls[index] - 1].diceAttributes?.filter((diceAttr => diceAttr.selected));
                 if (diceAttrs?.length) {
@@ -154,7 +153,6 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                     accumulatedWheelspin += diceAttrs[0].wheelspin;
                 }
             });
- 
 
             if (selectedCar) {
                 const newCarStats = {
@@ -297,10 +295,10 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
             </div>
 
             <div className="water-container">
-                <div className="treesImage"></div> 
-                <div className="boat"></div>  
+                <div className="treesImage"></div>
+                <div className="boat"></div>
             </div>
-            
+
             <div id="road" className="roadImage"></div> 
             <div className="distanceTravelled">{Math.round(car1Position)}m</div>
             <div className="selectedCarImage" style={{transform: `translateX(${car1Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
@@ -309,7 +307,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
 
             <div className="enemyDistanceTravelled">{Math.round(car2Position)}m</div>
             <div className="enemyCarImage" style={{transform: `translateX(${car2Position}px)`,transition: 'transform 0.5s ease-in-out',}}>
-                {selectedCar ? <Image width={500} height={500} src={`/Images/cars/HondaCivic.png`} alt={"hondaCivic"} /> : <Loader />}
+                {selectedCar ? <Image width={500} height={500} src='/Images/cars/hondaCivic.png' alt={"hondaCivic"} /> : <Loader />}
             </div>
 
             {selectedCar && <Peddle diceThrow={() => diceThrow()} disabledClass={disablePeddle} />}
