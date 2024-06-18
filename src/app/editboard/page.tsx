@@ -213,12 +213,12 @@ const EditBoard = ({ searchParams }: { searchParams: any }) => {
                 </div>
                 <div className="item item2">
                     <div className="editboard-diceChooserContainer">
-                        <div className={setActiveClassForPart('engine', 'editboard-dc1')} onClick={() => handlePartChooser('engine')}></div>
-                        <div className={setActiveClassForPart('transmission', 'editboard-dc2')} onClick={() => handlePartChooser('transmission')}></div>
-                        <div className={setActiveClassForPart('tires', 'editboard-dc3')} onClick={() => handlePartChooser('tires')}></div>
-                        <div className={setActiveClassForPart('turbo', 'editboard-dc4')} onClick={() => handlePartChooser('turbo')}></div>
-                        <div className={setActiveClassForPart('body', 'editboard-dc5')} onClick={() => handlePartChooser('body')}></div>
-                        <div className={setActiveClassForPart('intake', 'editboard-dc6')} onClick={() => handlePartChooser('intake')}></div>
+                        <div className={setActiveClassForPart('engine', 'editboard-dc1')} onClick={() => handlePartChooser('engine')}>engine</div>
+                        <div className={setActiveClassForPart('transmission', 'editboard-dc2')} onClick={() => handlePartChooser('transmission')}>transmission</div>
+                        <div className={setActiveClassForPart('tires', 'editboard-dc3')} onClick={() => handlePartChooser('tires')}>tires</div>
+                        <div className={setActiveClassForPart('turbo', 'editboard-dc4')} onClick={() => handlePartChooser('turbo')}>turbo</div>
+                        <div className={setActiveClassForPart('body', 'editboard-dc5')} onClick={() => handlePartChooser('body')}>body</div>
+                        <div className={setActiveClassForPart('intake', 'editboard-dc6')} onClick={() => handlePartChooser('intake')}>intake</div>
                     </div>
                 </div>
 

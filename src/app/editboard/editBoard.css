@@ -128,6 +128,10 @@
     background-size: 50px;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    font-size: 1rem;
 }
 .editboard-dicechoose.active {
     background-color: #69e9ad;

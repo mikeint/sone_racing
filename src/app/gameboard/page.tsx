@@ -100,6 +100,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     }, []);
     
     const diceThrow = () => {
+        console.log("GEAR:" , gear)
         if (gear!==5) {
             setGear(gear+1);
             // clear dice refs classes
@@ -165,15 +166,15 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                 
                 /* Animate road */
                 const road:any = document.getElementById('road');
-                road.classList.add('animate');
-                setTimeout(() => {road.classList.remove('animate');}, 400);
+                road.classList.add('animateRoad');
+                setTimeout(() => {road.classList.remove('animateRoad');}, 400);
                 /* end Animate road */
 
                 console.log("new stats to show: ", newCarStats)
                 const pixelValue = convertToPixels(newCarStats);
                 //console.log("DISTANCE::::: ", pixelValue) 
                 setCar1Position(prevPosition => prevPosition + pixelValue); 
-                setCar2Position(prevPosition => prevPosition + pixelValue- (Math.floor(Math.random()*20)) ); 
+                setCar2Position(prevPosition => prevPosition + pixelValue - (Math.floor(Math.random()*20)) ); 
             }
 
         } else {
