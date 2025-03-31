@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Peddle from '../../components/Peddle/Peddle'
 import NavBar from '../../components/NavBar/NavBar'
 import { useRouter } from "next/navigation"
@@ -15,7 +15,13 @@ const raceTypes = [
 
 const RaceBoard = () => {
 	const router = useRouter();
-    const [activeRace, setActiveRace] = useState<number>(Number(localStorage.getItem('selectedRace')) || 0);
+    const [activeRace, setActiveRace] = useState<number>(0);
+
+    useEffect(() => {
+        const storedRace = Number(localStorage.getItem('selectedRace'));
+        if (!isNaN(storedRace)) setActiveRace(storedRace);
+    }, []);
+
 
     const handleItemClick = (index:number) => {
         setActiveRace(index);

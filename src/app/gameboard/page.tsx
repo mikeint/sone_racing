@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from "react"
+import React, { use, useEffect, useRef, useState } from "react"
 import Peddle from '../../components/Peddle/Peddle'
 import 'sweetalert2/src/sweetalert2.scss';
 import Swal from 'sweetalert2'
@@ -13,12 +13,14 @@ import Image from 'next/image';
 import { useMoney } from '../../contexts/MoneyContext';
 import CarStats from "@/components/CarStats/CarStats";
 import { callConffeti } from '../../utils/helperFunctions'
+import useScreenWidth from '../../components/ScreenWidth/ScreenWidth';
 
 const GameBoard = ({ searchParams }: { searchParams: any }) => {
     const raceType: number = parseInt(JSON.stringify(searchParams.raceType).replace(/"/g, ''));
 	const { data: session, status: sessionStatus } = useSession();
 	const router = useRouter();
     const { money, setMoney } = useMoney();
+    const screenWidth = useScreenWidth();
 
     useEffect(() => {
 		if (sessionStatus !== "authenticated") {
@@ -45,12 +47,22 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     const [gear, setGear] = useState<number>(0); 
     const [currentRollStats, setCurrentRollStats] = useState({});
     const [disablePeddle, setDisablePeddle] = useState('');
+    const [gearMax, setGearMax] = useState(0);
     const diceNames = ["Engine", "Turbo", "Intake", "Body", "Tires", "Transmission"]
- 
+
     useEffect(() => {
-        if (raceType===0) { setRaceValue(50); } 
-        if (raceType===1) { setRaceValue(100); } 
-        if (raceType===2) { setRaceValue(200); } 
+        if (raceType===0) {
+            setGearMax(4)
+            setRaceValue(50);
+        } 
+        if (raceType===1) { 
+            setGearMax(6)
+            setRaceValue(100);
+        }
+        if (raceType===2) { 
+            setGearMax(10)
+            setRaceValue(200);
+        } 
     })
 
     useEffect(() => {
@@ -101,7 +113,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
     
     const diceThrow = () => {
         console.log("GEAR:" , gear)
-        if (gear!==5) {
+        if (gear!==gearMax) {
             setGear(gear+1);
             // clear dice refs classes
             document.querySelectorAll('.dice').forEach(element =>element.className = 'dice');
@@ -127,7 +139,7 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
                 diceRefs.current[index].classList.add("dice"+diceData[index][score].toString());
                 diceRolls.push(diceData[index][score])
             });
-            setDiceRolls(diceRolls) 
+            setDiceRolls(diceRolls)
 
             // TO-DO: add diceRolls to basestats
             // [2, 1, 1, 1, 1, 5]
@@ -272,8 +284,12 @@ const GameBoard = ({ searchParams }: { searchParams: any }) => {
         }
         else {
             console.log(speedPixelsPerFrame * 100)
+
+            // TO-DO work on screenSEgment and how to return pixels always the width of page
+            console.log("RACETYPE: ", raceType, "SCREEN:", screenWidth, "GEAR MAX", gearMax)
+            //const screenSegment = screenWidth/gearMax;
             return speedPixelsPerFrame * 100
-        } 
+        }
     }
     
     return (
